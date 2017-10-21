@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,1" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="opentrials"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="aact"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="tibbs001"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<database name="aact2_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
+	<role name="tibbs001"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="schema_migrations">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="60" y="60"/>
+	<column name="version" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+</table>
+
+<index name="unique_schema_migrations" table="public.schema_migrations"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="version"/>
+		</idxelement>
+</index>
+
+<sequence name="load_events_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="load_events">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="300" y="60"/>
+	<column name="id" not-null="true" sequence="public.load_events_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="event_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="problems">
+		<type name="text" length="0"/>
+	</column>
+	<column name="should_add">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="should_change">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="processed">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="load_time">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="completed_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="load_events_pkey" type="pk-constr" table="public.load_events">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="sanity_checks_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="sanity_checks">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="540" y="60"/>
+	<column name="id" not-null="true" sequence="public.sanity_checks_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="table_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="row_count">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="most_current">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="sanity_checks_pkey" type="pk-constr" table="public.sanity_checks">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="statistics_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<sequence name="study_xml_records_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="study_xml_records">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="60" y="120"/>
+	<column name="id" not-null="true" sequence="public.study_xml_records_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="content">
+		<type name="xml" length="0"/>
+	</column>
+	<column name="created_study_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="study_xml_records_pkey" type="pk-constr" table="public.study_xml_records">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="data_definitions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="data_definitions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="80" y="260"/>
+	<column name="id" not-null="true" sequence="public.data_definitions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="db_section">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="table_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="column_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="data_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="source">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="ctti_note">
+		<type name="text" length="0"/>
+	</column>
+	<column name="nlm_link">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="row_count">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="enumerations">
+		<type name="json" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="data_definitions_pkey" type="pk-constr" table="public.data_definitions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="use_cases_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="use_cases">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="300" y="260"/>
+	<column name="id" not-null="true" sequence="public.use_cases_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_summary">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="detailed_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="url">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="submitter_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="contact_info">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="image">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="remote_image_url">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="use_cases_pkey" type="pk-constr" table="public.use_cases">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="use_case_attachments_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="use_case_attachments">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="580" y="260"/>
+	<column name="id" not-null="true" sequence="public.use_case_attachments_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="use_case_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="file_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="payload">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="use_case_attachments_pkey" type="pk-constr" table="public.use_case_attachments">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="use_case_attach_use_case_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.use_cases" table="public.use_case_attachments">
+	<columns names="use_case_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_use_case_attachments_use_cases" type="relfk"
+	 custom-color="#010001"
+	 src-table="public.use_case_attachments"
+	 dst-table="public.use_cases"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

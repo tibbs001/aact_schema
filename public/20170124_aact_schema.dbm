@@ -1,0 +1,3141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,1515" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="opentrials"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="aact"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="tibbs001"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<database name="aact2_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
+	<role name="tibbs001"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="schema_migrations" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="40" y="2200"/>
+	<column name="version" not-null="true" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<initial-data>
+<![CDATA[version⸣
+]]>
+	</initial-data>
+</table>
+
+<index name="unique_schema_migrations" table="public.schema_migrations"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90" protected="true">
+		<idxelement use-sorting="false">
+			<column name="version"/>
+		</idxelement>
+</index>
+
+<sequence name="brief_summaries_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="brief_summaries">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="140" y="980"/>
+	<column name="id" not-null="true" sequence="public.brief_summaries_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="brief_summaries_pkey" type="pk-constr" table="public.brief_summaries">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="browse_conditions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="browse_conditions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="640" y="300"/>
+	<column name="id" not-null="true" sequence="public.browse_conditions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="browse_conditions_pkey" type="pk-constr" table="public.browse_conditions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="browse_interventions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="browse_interventions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="440" y="300"/>
+	<column name="id" not-null="true" sequence="public.browse_interventions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="browse_interventions_pkey" type="pk-constr" table="public.browse_interventions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="calculated_values_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="calculated_values">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="900" y="40"/>
+	<column name="id" not-null="true" sequence="public.calculated_values_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="sponsor_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="number_of_facilities">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="number_of_nsae_subjects">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="number_of_sae_subjects">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="registered_in_calendar_year">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nlm_download_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="actual_duration">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="were_results_reported" default-value="false">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="months_to_report_results">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="has_us_facility" default-value="false">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="has_single_facility" default-value="false">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="minimum_age_num">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="maximum_age_num">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="minimum_age_unit">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="maximum_age_unit">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="calculated_values_pkey" type="pk-constr" table="public.calculated_values">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="central_contacts_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="central_contacts">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1140" y="600"/>
+	<column name="id" not-null="true" sequence="public.central_contacts_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="contact_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="phone">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="central_contacts_pkey" type="pk-constr" table="public.central_contacts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="conditions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="conditions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="580" y="400"/>
+	<column name="id" not-null="true" sequence="public.conditions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="conditions_pkey" type="pk-constr" table="public.conditions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="countries_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="countries">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="960" y="560"/>
+	<column name="id" not-null="true" sequence="public.countries_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="removed">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="countries_pkey" type="pk-constr" table="public.countries">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="design_group_interventions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="design_group_interventions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="40" y="260"/>
+	<column name="id" not-null="true" sequence="public.design_group_interventions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="design_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="intervention_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="design_group_interventions_pkey" type="pk-constr" table="public.design_group_interventions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="design_groups_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="design_groups">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="300" y="380"/>
+	<column name="id" not-null="true" sequence="public.design_groups_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="group_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="design_groups_pkey" type="pk-constr" table="public.design_groups">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="design_outcomes_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="design_outcomes">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="100" y="640"/>
+	<column name="id" not-null="true" sequence="public.design_outcomes_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="outcome_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="population">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="measure">
+		<type name="text" length="0"/>
+	</column>
+	<column name="time_frame">
+		<type name="text" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="design_outcomes_pkey" type="pk-constr" table="public.design_outcomes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="designs_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="designs">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="200" y="60"/>
+	<column name="id" not-null="true" sequence="public.designs_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="allocation">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="intervention_model">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="intervention_model_description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="primary_purpose">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="time_perspective">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="masking">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="masking_description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="observational_model">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="subject_masked">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="caregiver_masked">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="investigator_masked">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="outcomes_assessor_masked">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="designs_pkey" type="pk-constr" table="public.designs">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="detailed_descriptions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="detailed_descriptions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="700" y="180"/>
+	<column name="id" not-null="true" sequence="public.detailed_descriptions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="detailed_descriptions_pkey" type="pk-constr" table="public.detailed_descriptions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="eligibilities_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="eligibilities">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="40" y="780"/>
+	<column name="id" not-null="true" sequence="public.eligibilities_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="sampling_method">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="gender">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="gender_based">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="minimum_age">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="maximum_age">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="healthy_volunteers">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="population">
+		<type name="text" length="0"/>
+	</column>
+	<column name="gender_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="criteria">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="eligibilities_pkey" type="pk-constr" table="public.eligibilities">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="facilities_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="facilities">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="940" y="400"/>
+	<column name="id" not-null="true" sequence="public.facilities_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="city">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="state">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="zip">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="country">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="facilities_pkey" type="pk-constr" table="public.facilities">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="facility_contacts_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="facility_contacts">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1160" y="440"/>
+	<column name="id" not-null="true" sequence="public.facility_contacts_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="facility_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="contact_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="phone">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="facility_contacts_pkey" type="pk-constr" table="public.facility_contacts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="facility_investigators_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="facility_investigators">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1140" y="280"/>
+	<column name="id" not-null="true" sequence="public.facility_investigators_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="facility_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="role">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="facility_investigators_pkey" type="pk-constr" table="public.facility_investigators">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="id_information_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="id_information">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="140" y="1100"/>
+	<column name="id" not-null="true" sequence="public.id_information_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="id_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="id_value">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="id_information_pkey" type="pk-constr" table="public.id_information">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="intervention_other_names_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="intervention_other_names">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="40" y="540"/>
+	<column name="id" not-null="true" sequence="public.intervention_other_names_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="intervention_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="intervention_other_names_pkey" type="pk-constr" table="public.intervention_other_names">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="interventions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="interventions">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="60" y="400"/>
+	<column name="id" not-null="true" sequence="public.interventions_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="intervention_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="interventions_pkey" type="pk-constr" table="public.interventions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="keywords_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="keywords">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="80" y="1320"/>
+	<column name="id" not-null="true" sequence="public.keywords_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="keywords_pkey" type="pk-constr" table="public.keywords">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="links_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="links">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="60" y="1200"/>
+	<column name="id" not-null="true" sequence="public.links_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="url">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="links_pkey" type="pk-constr" table="public.links">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="overall_officials_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="overall_officials">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1120" y="960"/>
+	<column name="id" not-null="true" sequence="public.overall_officials_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="role">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="affiliation">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="overall_officials_pkey" type="pk-constr" table="public.overall_officials">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="responsible_parties_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="responsible_parties">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1040" y="820"/>
+	<column name="id" not-null="true" sequence="public.responsible_parties_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="responsible_party_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="organization">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="affiliation">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="responsible_parties_pkey" type="pk-constr" table="public.responsible_parties">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="sponsors_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="sponsors">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1040" y="720"/>
+	<column name="id" not-null="true" sequence="public.sponsors_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="agency_class">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="lead_or_collaborator">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="sponsors_pkey" type="pk-constr" table="public.sponsors">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="studies">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="540" y="780"/>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="nlm_download_date_description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="first_received_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_changed_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="first_received_results_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="received_results_disposit_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="start_month_year">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="start_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="start_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="verification_month_year">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="verification_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="completion_month_year">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="completion_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="completion_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="primary_completion_month_year">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="primary_completion_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="primary_completion_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="target_duration">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="study_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="acronym">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="baseline_population">
+		<type name="text" length="0"/>
+	</column>
+	<column name="brief_title">
+		<type name="text" length="0"/>
+	</column>
+	<column name="official_title">
+		<type name="text" length="0"/>
+	</column>
+	<column name="overall_status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="last_known_status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="phase">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="enrollment">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="enrollment_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="source">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="limitations_and_caveats">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="number_of_arms">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="number_of_groups">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="why_stopped">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="has_expanded_access">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="expanded_access_type_individual">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="expanded_access_type_intermediate">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="expanded_access_type_treatment">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="has_dmc">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_fda_regulated_drug">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_fda_regulated_device">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_unapproved_device">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_ppsd">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_us_export">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="biospec_retention">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="biospec_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="plan_to_share_ipd">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="plan_to_share_ipd_description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+</table>
+
+<sequence name="study_references_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="study_references">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="280" y="1320"/>
+	<column name="id" not-null="true" sequence="public.study_references_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="pmid">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="reference_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="citation">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="study_references_pkey" type="pk-constr" table="public.study_references">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="result_agreements_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="result_agreements">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1020" y="1160"/>
+	<column name="id" not-null="true" sequence="public.result_agreements_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="pi_employee">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="agreement">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="result_agreements_pkey" type="pk-constr" table="public.result_agreements">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="result_contacts_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="result_contacts">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1080" y="1060"/>
+	<column name="id" not-null="true" sequence="public.result_contacts_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="organization">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="phone">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="result_contacts_pkey" type="pk-constr" table="public.result_contacts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="result_groups_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="result_groups">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="600" y="1440"/>
+	<column name="id" not-null="true" sequence="public.result_groups_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="result_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="result_groups_pkey" type="pk-constr" table="public.result_groups">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="reported_events_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="reported_events">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="140" y="1440"/>
+	<column name="id" not-null="true" sequence="public.reported_events_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="time_frame">
+		<type name="text" length="0"/>
+	</column>
+	<column name="event_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="default_vocab">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="default_assessment">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="subjects_affected">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="subjects_at_risk">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="event_count">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="organ_system">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="adverse_event_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="frequency_threshold">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="vocab">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="assessment">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="reported_events_pkey" type="pk-constr" table="public.reported_events">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="participant_flows_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="participant_flows">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="940" y="1260"/>
+	<column name="id" not-null="true" sequence="public.participant_flows_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="recruitment_details">
+		<type name="text" length="0"/>
+	</column>
+	<column name="pre_assignment_details">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="participant_flows_pkey" type="pk-constr" table="public.participant_flows">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="drop_withdrawals_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="drop_withdrawals">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1000" y="1580"/>
+	<column name="id" not-null="true" sequence="public.drop_withdrawals_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="period">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="reason">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="count">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="drop_withdrawals_pkey" type="pk-constr" table="public.drop_withdrawals">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="milestones_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="milestones">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="1000" y="1420"/>
+	<column name="id" not-null="true" sequence="public.milestones_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="period">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="count">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="milestones_pkey" type="pk-constr" table="public.milestones">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="baseline_measurements_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="baseline_measurements">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="60" y="1900"/>
+	<column name="id" not-null="true" sequence="public.baseline_measurements_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="classification">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="category">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="units">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_value">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_value_num">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="dispersion_value">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="dispersion_value_num">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_lower_limit">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_upper_limit">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="explanation_of_na">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="baseline_measurements_pkey" type="pk-constr" table="public.baseline_measurements">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="baseline_counts_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="baseline_counts">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="20" y="1780"/>
+	<column name="id" not-null="true" sequence="public.baseline_counts_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="units">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="scope">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="count">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="baseline_counts_pkey" type="pk-constr" table="public.baseline_counts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="outcomes_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="outcomes">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="660" y="1840"/>
+	<column name="id" not-null="true" sequence="public.outcomes_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="outcome_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="text" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="time_frame">
+		<type name="text" length="0"/>
+	</column>
+	<column name="population">
+		<type name="text" length="0"/>
+	</column>
+	<column name="anticipated_posting_month_year">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="units">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="units_analyzed">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="dispersion_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="outcomes_pkey" type="pk-constr" table="public.outcomes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="outcome_counts_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="outcome_counts">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="380" y="1780"/>
+	<column name="id" not-null="true" sequence="public.outcome_counts_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="outcome_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="scope">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="units">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="count">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="outcome_counts_pkey" type="pk-constr" table="public.outcome_counts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="outcome_measurements_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="outcome_measurements">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="340" y="1900"/>
+	<column name="id" not-null="true" sequence="public.outcome_measurements_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="outcome_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="classification">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="category">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="units">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_value">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_value_num">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="dispersion_value">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="dispersion_value_num">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_lower_limit">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_upper_limit">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="explanation_of_na">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="outcome_measurements_pkey" type="pk-constr" table="public.outcome_measurements">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="outcome_analyses_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="outcome_analyses">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="980" y="1860"/>
+	<column name="id" not-null="true" sequence="public.outcome_analyses_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="outcome_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="non_inferiority_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="non_inferiority_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="param_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="param_value">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="dispersion_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="dispersion_value">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="p_value">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="ci_n_sides">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="ci_percent">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="ci_lower_limit">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="ci_upper_limit">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="ci_upper_limit_na_comment">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="method">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="p_value_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="method_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="estimate_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="groups_description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="other_analysis_description">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="outcome_analyses_pkey" type="pk-constr" table="public.outcome_analyses">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="outcome_analysis_groups_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="outcome_analysis_groups">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="820" y="1720"/>
+	<column name="id" not-null="true" sequence="public.outcome_analysis_groups_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="outcome_analysis_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="result_group_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ctgov_group_code">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="outcome_analysis_groups_pkey" type="pk-constr" table="public.outcome_analysis_groups">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="load_events_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="load_events" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="240" y="2200"/>
+	<column name="id" not-null="true" sequence="public.load_events_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="event_type" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="status" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description" protected="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="problems" protected="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="should_add" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="should_change" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="processed" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="load_time" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="completed_at" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="load_events_pkey" type="pk-constr" protected="true" table="public.load_events">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="sanity_checks_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="sanity_checks" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="460" y="2200"/>
+	<column name="id" not-null="true" sequence="public.sanity_checks_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="table_name" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="nct_id" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="row_count" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description" protected="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="most_current" protected="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="created_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="sanity_checks_pkey" type="pk-constr" protected="true" table="public.sanity_checks">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="statistics_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="statistics" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="660" y="2200"/>
+	<column name="id" not-null="true" sequence="public.statistics_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="start_date" protected="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="end_date" protected="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="sponsor_type" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="stat_category" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="stat_value" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="number_of_studies" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="statistics_pkey" type="pk-constr" protected="true" table="public.statistics">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="study_xml_records_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="study_xml_records" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="900" y="2200"/>
+	<column name="id" not-null="true" sequence="public.study_xml_records_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="content" protected="true">
+		<type name="xml" length="0"/>
+	</column>
+	<column name="created_study_at" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="study_xml_records_pkey" type="pk-constr" protected="true" table="public.study_xml_records">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="data_definitions_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="data_definitions" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="60" y="2360"/>
+	<column name="id" not-null="true" sequence="public.data_definitions_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="db_section" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="table_name" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="column_name" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="data_type" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="source" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="ctti_note" protected="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="nlm_link" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="row_count" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="enumerations" protected="true">
+		<type name="json" length="0"/>
+	</column>
+	<column name="created_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="data_definitions_pkey" type="pk-constr" protected="true" table="public.data_definitions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="use_cases_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="use_cases" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="300" y="2360"/>
+	<column name="id" not-null="true" sequence="public.use_cases_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="status" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="title" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_summary" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="detailed_description" protected="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="url" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="submitter_name" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="contact_info" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="email" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="image" protected="true">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="remote_image_url" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="created_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="use_cases_pkey" type="pk-constr" protected="true" table="public.use_cases">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="use_case_attachments_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+</sequence>
+
+<table name="use_case_attachments" protected="true">
+	<schema name="public"/>
+	<role name="tibbs001"/>
+	<position x="580" y="2360"/>
+	<column name="id" not-null="true" sequence="public.use_case_attachments_id_seq" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="use_case_id" protected="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="file_name" protected="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="payload" protected="true">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="created_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true" protected="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="use_case_attachments_pkey" type="pk-constr" protected="true" table="public.use_case_attachments">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="index_browse_conditions_on_nct_id" table="public.browse_conditions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_browse_interventions_on_nct_id" table="public.browse_interventions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_overall_officials_on_nct_id" table="public.overall_officials"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_responsible_parties_on_nct_id" table="public.responsible_parties"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_study_xml_records_on_nct_id" table="public.study_xml_records"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90" protected="true">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_baseline_measurements_on_category" table="public.baseline_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="category"/>
+		</idxelement>
+</index>
+
+<index name="index_baseline_measurements_on_classification" table="public.baseline_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="classification"/>
+		</idxelement>
+</index>
+
+<index name="index_baseline_measurements_on_dispersion_type" table="public.baseline_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_baseline_measurements_on_param_type" table="public.baseline_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="param_type"/>
+		</idxelement>
+</index>
+
+<index name="index_browse_conditions_on_mesh_term" table="public.browse_conditions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_browse_interventions_on_mesh_term" table="public.browse_interventions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_calculated_values_on_actual_duration" table="public.calculated_values"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="actual_duration"/>
+		</idxelement>
+</index>
+
+<index name="index_calculated_values_on_months_to_report_results" table="public.calculated_values"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="months_to_report_results"/>
+		</idxelement>
+</index>
+
+<index name="index_calculated_values_on_number_of_facilities" table="public.calculated_values"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="number_of_facilities"/>
+		</idxelement>
+</index>
+
+<index name="index_calculated_values_on_sponsor_type" table="public.calculated_values"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="sponsor_type"/>
+		</idxelement>
+</index>
+
+<index name="index_central_contacts_on_contact_type" table="public.central_contacts"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="contact_type"/>
+		</idxelement>
+</index>
+
+<index name="index_design_groups_on_group_type" table="public.design_groups"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="group_type"/>
+		</idxelement>
+</index>
+
+<index name="index_design_outcomes_on_outcome_type" table="public.design_outcomes"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="outcome_type"/>
+		</idxelement>
+</index>
+
+<index name="index_designs_on_masking" table="public.designs"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="masking"/>
+		</idxelement>
+</index>
+
+<index name="index_designs_on_subject_masked" table="public.designs"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="subject_masked"/>
+		</idxelement>
+</index>
+
+<index name="index_designs_on_caregiver_masked" table="public.designs"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="caregiver_masked"/>
+		</idxelement>
+</index>
+
+<index name="index_designs_on_investigator_masked" table="public.designs"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="investigator_masked"/>
+		</idxelement>
+</index>
+
+<index name="index_designs_on_outcomes_assessor_masked" table="public.designs"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="outcomes_assessor_masked"/>
+		</idxelement>
+</index>
+
+<index name="index_drop_withdrawals_on_period" table="public.drop_withdrawals"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="period"/>
+		</idxelement>
+</index>
+
+<index name="index_eligibilities_on_gender" table="public.eligibilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="gender"/>
+		</idxelement>
+</index>
+
+<index name="index_eligibilities_on_healthy_volunteers" table="public.eligibilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="healthy_volunteers"/>
+		</idxelement>
+</index>
+
+<index name="index_eligibilities_on_minimum_age" table="public.eligibilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="minimum_age"/>
+		</idxelement>
+</index>
+
+<index name="index_eligibilities_on_maximum_age" table="public.eligibilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="maximum_age"/>
+		</idxelement>
+</index>
+
+<index name="index_facilities_on_status" table="public.facilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="status"/>
+		</idxelement>
+</index>
+
+<index name="index_facilities_on_name" table="public.facilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="name"/>
+		</idxelement>
+</index>
+
+<index name="index_facilities_on_city" table="public.facilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="city"/>
+		</idxelement>
+</index>
+
+<index name="index_facilities_on_state" table="public.facilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="state"/>
+		</idxelement>
+</index>
+
+<index name="index_facilities_on_country" table="public.facilities"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="country"/>
+		</idxelement>
+</index>
+
+<index name="index_facility_contacts_on_contact_type" table="public.facility_contacts"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="contact_type"/>
+		</idxelement>
+</index>
+
+<index name="index_id_information_on_id_type" table="public.id_information"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="id_type"/>
+		</idxelement>
+</index>
+
+<index name="index_interventions_on_intervention_type" table="public.interventions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="intervention_type"/>
+		</idxelement>
+</index>
+
+<index name="index_milestones_on_period" table="public.milestones"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="period"/>
+		</idxelement>
+</index>
+
+<index name="index_overall_officials_on_affiliation" table="public.overall_officials"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="affiliation"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_analyses_on_dispersion_type" table="public.outcome_analyses"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_analyses_on_param_type" table="public.outcome_analyses"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="param_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_measurements_on_dispersion_type" table="public.outcome_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_measurements_on_category" table="public.outcome_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="category"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_measurements_on_classification" table="public.outcome_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="classification"/>
+		</idxelement>
+</index>
+
+<index name="index_outcomes_on_dispersion_type" table="public.outcomes"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcomes_on_param_type" table="public.outcomes"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="param_type"/>
+		</idxelement>
+</index>
+
+<index name="index_reported_events_on_event_type" table="public.reported_events"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="event_type"/>
+		</idxelement>
+</index>
+
+<index name="index_reported_events_on_subjects_affected" table="public.reported_events"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="subjects_affected"/>
+		</idxelement>
+</index>
+
+<index name="index_responsible_parties_on_organization" table="public.responsible_parties"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="organization"/>
+		</idxelement>
+</index>
+
+<index name="index_responsible_parties_on_responsible_party_type" table="public.responsible_parties"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="responsible_party_type"/>
+		</idxelement>
+</index>
+
+<index name="index_result_contacts_on_organization" table="public.result_contacts"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="organization"/>
+		</idxelement>
+</index>
+
+<index name="index_result_groups_on_result_type" table="public.result_groups"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="result_type"/>
+		</idxelement>
+</index>
+
+<index name="index_sanity_checks_on_created_at" table="public.sanity_checks"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90" protected="true">
+		<idxelement use-sorting="false">
+			<column name="created_at"/>
+		</idxelement>
+</index>
+
+<index name="index_sanity_checks_on_most_current" table="public.sanity_checks"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90" protected="true">
+		<idxelement use-sorting="false">
+			<column name="most_current"/>
+		</idxelement>
+</index>
+
+<index name="index_sanity_checks_on_table_name" table="public.sanity_checks"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90" protected="true">
+		<idxelement use-sorting="false">
+			<column name="table_name"/>
+		</idxelement>
+</index>
+
+<index name="index_sponsors_on_agency_class" table="public.sponsors"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="agency_class"/>
+		</idxelement>
+</index>
+
+<index name="index_sponsors_on_name" table="public.sponsors"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="name"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_completion_date" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="completion_date"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_enrollment_type" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="enrollment_type"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_last_known_status" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="last_known_status"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_overall_status" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="overall_status"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_phase" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="phase"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_primary_completion_date" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="primary_completion_date"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_primary_completion_date_type" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="primary_completion_date_type"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_source" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="source"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_start_date" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="start_date"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_start_date_type" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="start_date_type"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_study_type" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="study_type"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_first_received_results_date" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="first_received_results_date"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_received_results_disposit_date" table="public.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="received_results_disposit_date"/>
+		</idxelement>
+</index>
+
+<index name="index_study_references_on_reference_type" table="public.study_references"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="reference_type"/>
+		</idxelement>
+</index>
+
+<index name="index_study_xml_records_on_created_study_at" table="public.study_xml_records"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90" protected="true">
+		<idxelement use-sorting="false">
+			<column name="created_study_at"/>
+		</idxelement>
+</index>
+
+<constraint name="brief_summaries_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.brief_summaries">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="browse_conditions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.browse_conditions">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="browse_interventions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.browse_interventions">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="calculated_values_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.calculated_values">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="central_contacts_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.central_contacts">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="conditions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.conditions">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="countries_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.countries">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="design_groups_interventions_design_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.design_groups" table="public.design_group_interventions">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="design_groups_interventions_intervention_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.interventions" table="public.design_group_interventions">
+	<columns names="design_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="design_groups_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.design_groups">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="design_outcomes_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.design_outcomes">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="designs_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.designs">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="detailed_descriptions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.detailed_descriptions">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="eligibilities_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.eligibilities">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="facilities_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.facilities">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="facility_contacts_facility_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.facilities" table="public.facility_contacts">
+	<columns names="facility_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="facility_i_f_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.facilities" table="public.facility_investigators">
+	<columns names="facility_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_study_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.id_information">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="ion_intervention_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.interventions" table="public.intervention_other_names">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="interventions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.interventions">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="keywords_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.keywords">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="links_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.links">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="overall_officials_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.overall_officials">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="responsible_parties_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.responsible_parties">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sponsors_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.sponsors">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="study_references_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.study_references">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="result_agreements_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.result_agreements">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="result_contacts_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.result_contacts">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="result_groups_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.result_groups">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="reported_events_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.reported_events">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="part_flow_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.participant_flows">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="drop_with_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.drop_withdrawals">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="milestones_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.milestones">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="baseline_m_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.baseline_measurements">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="baseline_c_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.baseline_counts">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_count_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.outcome_counts">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_count_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcomes" table="public.outcome_counts">
+	<columns names="outcome_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_measurement_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.outcome_measurements">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_measurement_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcomes" table="public.outcome_measurements">
+	<columns names="outcome_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_analyses_outcome_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcomes" table="public.outcome_analyses">
+	<columns names="outcome_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_analysis_group_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.outcome_analysis_groups">
+	<columns names="result_group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="outcome_analysis_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcome_analyses" table="public.outcome_analysis_groups">
+	<columns names="outcome_analysis_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="use_case_attach_use_case_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.use_cases" protected="true" table="public.use_case_attachments">
+	<columns names="use_case_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_brief_summaries_studies" type="relfk"
+	 custom-color="#020002"
+	 src-table="public.brief_summaries"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_browse_conditions_studies" type="relfk"
+	 custom-color="#000101"
+	 src-table="public.browse_conditions"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_browse_interventions_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.browse_interventions"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_calculated_values_studies" type="relfk"
+	 custom-color="#000100"
+	 src-table="public.calculated_values"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_central_contacts_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.central_contacts"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_conditions_studies" type="relfk"
+	 custom-color="#1c192b"
+	 src-table="public.conditions"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_countries_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.countries"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_group_interventions_design_groups" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.design_group_interventions"
+	 dst-table="public.design_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_group_interventions_interventions" type="relfk"
+	 custom-color="#060306"
+	 src-table="public.design_group_interventions"
+	 dst-table="public.interventions"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_groups_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.design_groups"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_outcomes_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.design_outcomes"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_designs_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.designs"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detailed_descriptions_studies" type="relfk"
+	 custom-color="#010100"
+	 src-table="public.detailed_descriptions"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_eligibilities_studies" type="relfk"
+	 custom-color="#020104"
+	 src-table="public.eligibilities"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_facilities_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.facilities"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_facility_contacts_facilities" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.facility_contacts"
+	 dst-table="public.facilities"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_facility_investigators_facilities" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.facility_investigators"
+	 dst-table="public.facilities"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_id_information_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.id_information"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_other_names_interventions" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.intervention_other_names"
+	 dst-table="public.interventions"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_interventions_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.interventions"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_keywords_studies" type="relfk"
+	 custom-color="#000100"
+	 src-table="public.keywords"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_links_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.links"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_overall_officials_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.overall_officials"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_responsible_parties_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.responsible_parties"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_sponsors_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.sponsors"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_study_references_studies" type="relfk"
+	 custom-color="#856623"
+	 src-table="public.study_references"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_result_agreements_studies" type="relfk"
+	 custom-color="#38163f"
+	 src-table="public.result_agreements"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_result_contacts_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.result_contacts"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_result_groups_studies" type="relfk"
+	 custom-color="#584fe0"
+	 src-table="public.result_groups"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reported_events_result_groups" type="relfk"
+	 custom-color="#030503"
+	 src-table="public.reported_events"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_participant_flows_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.participant_flows"
+	 dst-table="public.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_drop_withdrawals_result_groups" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.drop_withdrawals"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_milestones_result_groups" type="relfk"
+	 custom-color="#080707"
+	 src-table="public.milestones"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_baseline_measurements_result_groups" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.baseline_measurements"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_baseline_counts_result_groups" type="relfk"
+	 custom-color="#010303"
+	 src-table="public.baseline_counts"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_counts_result_groups" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.outcome_counts"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_counts_outcomes" type="relfk"
+	 custom-color="#000100"
+	 src-table="public.outcome_counts"
+	 dst-table="public.outcomes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_measurements_result_groups" type="relfk"
+	 custom-color="#000000"
+	 src-table="public.outcome_measurements"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_measurements_outcomes" type="relfk"
+	 custom-color="#000804"
+	 src-table="public.outcome_measurements"
+	 dst-table="public.outcomes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_analyses_outcomes" type="relfk"
+	 custom-color="#324a3c"
+	 src-table="public.outcome_analyses"
+	 dst-table="public.outcomes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_analysis_groups_result_groups" type="relfk"
+	 custom-color="#504f45"
+	 src-table="public.outcome_analysis_groups"
+	 dst-table="public.result_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_outcome_analysis_groups_outcome_analyses" type="relfk"
+	 custom-color="#020102"
+	 src-table="public.outcome_analysis_groups"
+	 dst-table="public.outcome_analyses"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_use_case_attachments_use_cases" type="relfk"
+	 custom-color="#826154"
+	 src-table="public.use_case_attachments"
+	 dst-table="public.use_cases"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
