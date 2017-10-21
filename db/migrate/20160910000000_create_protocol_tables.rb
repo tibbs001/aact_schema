@@ -10,11 +10,13 @@ class CreateProtocolTables < ActiveRecord::Migration
     create_table "browse_conditions", force: :cascade do |t|
       t.string "nct_id"
       t.string "mesh_term"
+      t.string "downcase_mesh_term"
     end
 
     create_table "browse_interventions", force: :cascade do |t|
       t.string "nct_id"
       t.string "mesh_term"
+      t.string "downcase_mesh_term"
     end
 
     create_table "calculated_values", force: :cascade do |t|
@@ -27,7 +29,7 @@ class CreateProtocolTables < ActiveRecord::Migration
       t.integer "actual_duration"
       t.boolean "were_results_reported", default: false
       t.integer "months_to_report_results"
-      t.boolean "has_us_facility", default: false
+      t.boolean "has_us_facility"
       t.boolean "has_single_facility", default: false
       t.integer "minimum_age_num"
       t.integer "maximum_age_num"
@@ -46,6 +48,7 @@ class CreateProtocolTables < ActiveRecord::Migration
     create_table "conditions", force: :cascade do |t|
       t.string "nct_id"
       t.string "name"
+      t.string "downcase_name"
     end
 
     create_table "countries", force: :cascade do |t|
@@ -158,6 +161,7 @@ class CreateProtocolTables < ActiveRecord::Migration
     create_table "keywords", force: :cascade do |t|
       t.string "nct_id"
       t.string "name"
+      t.string "downcase_name"
     end
 
     create_table "links", force: :cascade do |t|
@@ -192,10 +196,29 @@ class CreateProtocolTables < ActiveRecord::Migration
     create_table "studies", id: false, force: :cascade do |t|
       t.string   "nct_id"
       t.string   "nlm_download_date_description"
-      t.date     "first_received_date"
-      t.date     "last_changed_date"
-      t.date     "first_received_results_date"
-      t.date     "received_results_disposit_date"
+      t.date     "first_received_date"  # deprecated
+      t.date     "last_changed_date"  # deprecated
+      t.date     "first_received_results_date"  # deprecated
+      t.date     "received_results_disposit_date"  # deprecated
+
+      t.date     "study_first_submitted_date"
+      t.date     "results_first_submitted_date"
+      t.date     "disposition_first_submitted_date"
+      t.date     "last_update_submitted_date"
+
+      t.date     "study_first_submitted_qc_date"
+      t.date     "study_first_posted_date"
+      t.string   "study_first_posted_date_type"
+      t.date     "results_first_submitted_qc_date"
+      t.date     "results_first_posted_date"
+      t.string   "results_first_posted_date_type"
+      t.date     "disposition_first_submitted_qc_date"
+      t.date     "disposition_first_posted_date"
+      t.string   "disposition_first_posted_date_type"
+      t.date     "last_update_submitted_qc_date"
+      t.date     "last_update_posted_date"
+      t.string   "last_update_posted_date_type"
+
       t.string   "start_month_year"
       t.string   "start_date_type"
       t.date     "start_date"
