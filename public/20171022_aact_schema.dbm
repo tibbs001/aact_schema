@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="249,1182" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="83,1670" last-zoom="1"
 	 default-schema="public" default-owner="postgres">
 <role name="tibbs001"
       superuser="true"
@@ -36,7 +36,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="brief_summaries">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="240" y="199"/>
+	<position x="240" y="200"/>
 	<column name="id" not-null="true" sequence="public.brief_summaries_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -62,7 +62,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="browse_conditions">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="460" y="199"/>
+	<position x="460" y="200"/>
 	<column name="id" not-null="true" sequence="public.browse_conditions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -643,7 +643,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="intervention_other_names">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="20" y="799"/>
+	<position x="20" y="800"/>
 	<column name="id" not-null="true" sequence="public.intervention_other_names_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -853,56 +853,89 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="studies">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="500" y="979"/>
+	<position x="480" y="660"/>
 	<column name="nct_id">
 		<type name="character varying" length="0"/>
 	</column>
-	<column name="nlm_download_date_description">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="first_received_date">
+	<column name="study_first_submitted_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="last_changed_date">
+	<column name="study_first_submitted_qc_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="first_received_results_date">
+	<column name="study_first_posted_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="received_results_disposit_date">
+	<column name="study_first_posted_date_type">
 		<type name="date" length="0"/>
+	</column>
+	<column name="results_first_submitted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="results_first_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="results_first_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="results_first_posted_date_type">
+		<type name="char" length="0"/>
+	</column>
+	<column name="last_update_submitted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_update_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_update_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_update_posted_date_type">
+		<type name="char" length="0"/>
+	</column>
+	<column name="disposition_first_submitted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="disposition_first_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="disposition_first_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="disposition_first_posted_date_type">
+		<type name="char" length="0"/>
 	</column>
 	<column name="start_month_year">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="start_date_type">
 		<type name="character varying" length="0"/>
 	</column>
 	<column name="start_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="verification_month_year">
+	<column name="start_date_type">
 		<type name="character varying" length="0"/>
-	</column>
-	<column name="verification_date">
-		<type name="date" length="0"/>
 	</column>
 	<column name="completion_month_year">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="completion_date_type">
 		<type name="character varying" length="0"/>
 	</column>
 	<column name="completion_date">
 		<type name="date" length="0"/>
 	</column>
+	<column name="completion_date_type">
+		<type name="character varying" length="0"/>
+	</column>
 	<column name="primary_completion_month_year">
 		<type name="character varying" length="0"/>
+	</column>
+	<column name="primary_completion_date">
+		<type name="date" length="0"/>
 	</column>
 	<column name="primary_completion_date_type">
 		<type name="character varying" length="0"/>
 	</column>
-	<column name="primary_completion_date">
+	<column name="verification_month_year">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="verification_date">
 		<type name="date" length="0"/>
 	</column>
 	<column name="target_duration">
@@ -995,11 +1028,28 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="plan_to_share_ipd_description">
 		<type name="character varying" length="0"/>
 	</column>
+	<column name="nlm_download_date_description">
+		<type name="character varying" length="0"/>
+	</column>
 	<column name="created_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
+	</column>
+	<column name="DEPRECATED first_received_date">
+		<type name="date" length="0"/>
+		<comment><![CDATA[DEPRECATED]]></comment>
+	</column>
+	<column name="DEPRECATED last_changed_date">
+		<type name="date" length="0"/>
+		<comment><![CDATA[DEPRECATED]]></comment>
+	</column>
+	<column name="DEPRECATED first_received_results_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="DEPRECATED received_results_disposit_date">
+		<type name="date" length="0"/>
 	</column>
 </table>
 
@@ -1046,7 +1096,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="result_agreements">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="120" y="1599"/>
+	<position x="120" y="1600"/>
 	<column name="id" not-null="true" sequence="public.result_agreements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1110,7 +1160,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="result_groups">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="480" y="1580"/>
+	<position x="500" y="1520"/>
 	<column name="id" not-null="true" sequence="public.result_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1242,7 +1292,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="drop_withdrawals">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="980" y="1840"/>
+	<position x="1000" y="1880"/>
 	<column name="id" not-null="true" sequence="public.drop_withdrawals_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1430,7 +1480,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcomes">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="360" y="2120"/>
+	<position x="340" y="2160"/>
 	<column name="id" not-null="true" sequence="public.outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1483,7 +1533,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_counts">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="400" y="1980"/>
+	<position x="400" y="1960"/>
 	<column name="id" not-null="true" sequence="public.outcome_counts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1524,7 +1574,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_measurements">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="1020" y="1980"/>
+	<position x="1000" y="2060"/>
 	<column name="id" not-null="true" sequence="public.outcome_measurements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1598,7 +1648,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_analyses">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="700" y="2000"/>
+	<position x="640" y="1920"/>
 	<column name="id" not-null="true" sequence="public.outcome_analyses_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1678,7 +1728,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_analysis_groups">
 	<schema name="public"/>
 	<role name="tibbs001"/>
-	<position x="600" y="1860"/>
+	<position x="560" y="1800"/>
 	<column name="id" not-null="true" sequence="public.outcome_analysis_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -2247,7 +2297,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
-			<column name="first_received_results_date"/>
+			<column name="&quot;DEPRECATED first_received_results_date&quot;"/>
 		</idxelement>
 </index>
 
@@ -2255,7 +2305,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
-			<column name="received_results_disposit_date"/>
+			<column name="&quot;DEPRECATED received_results_disposit_date&quot;"/>
 		</idxelement>
 </index>
 
