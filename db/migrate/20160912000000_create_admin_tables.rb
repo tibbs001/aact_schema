@@ -2,6 +2,11 @@ class CreateAdminTables < ActiveRecord::Migration
 
   def change
 
+    create_table "public_announcements", force: :cascade do |t|
+      t.string   "description"
+      t.boolean  "is_sticky"
+    end
+
     create_table "load_events", force: :cascade do |t|
       t.string   "event_type"
       t.string   "status"
@@ -12,6 +17,14 @@ class CreateAdminTables < ActiveRecord::Migration
       t.integer  "processed"
       t.string   "load_time"
       t.datetime "completed_at"
+      t.timestamps null: false
+    end
+
+    create_table "user_events", force: :cascade do |t|
+      t.string   "email"
+      t.string   "event_type"
+      t.text     "description"
+      t.string   "file_names"
       t.timestamps null: false
     end
 
@@ -64,6 +77,56 @@ class CreateAdminTables < ActiveRecord::Migration
       t.binary 'payload'
       t.timestamps null: false
     end
+
+    create_table(:users) do |t|
+      ## Database authenticatable
+      t.string :email,              null: false, default: ""
+      t.string :encrypted_password, null: false, default: ""
+      ## Recoverable
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
+      ## Rememberable
+      t.datetime :remember_created_at
+      ## Trackable
+      t.integer  :sign_in_count, default: 0, null: false
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
+      t.string   :first_name
+      t.string   :last_name
+      t.string   :username
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+    end
+
+    create_table(:removed_users) do |t|
+      t.string   :email
+      t.string   :encrypted_password
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
+      t.datetime :remember_created_at
+      t.integer  :sign_in_count
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
+      t.string   :first_name
+      t.string   :last_name
+      t.string   :username
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.timestamps null: false
+    end
+
+    add_index :users, :username, unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :reset_password_token, unique: true
+    add_index :users, :confirmation_token,   unique: true
+    add_index :removed_users, :email, unique: false
+    add_index :removed_users, :username, unique: false
 
   end
 
