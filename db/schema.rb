@@ -58,16 +58,20 @@ ActiveRecord::Schema.define(version: 20161212174016) do
   create_table "browse_conditions", force: :cascade do |t|
     t.string "nct_id"
     t.string "mesh_term"
+    t.string "downcase_mesh_term"
   end
 
+  add_index "browse_conditions", ["downcase_mesh_term"], name: "index_browse_conditions_on_downcase_mesh_term", using: :btree
   add_index "browse_conditions", ["mesh_term"], name: "index_browse_conditions_on_mesh_term", using: :btree
   add_index "browse_conditions", ["nct_id"], name: "index_browse_conditions_on_nct_id", using: :btree
 
   create_table "browse_interventions", force: :cascade do |t|
     t.string "nct_id"
     t.string "mesh_term"
+    t.string "downcase_mesh_term"
   end
 
+  add_index "browse_interventions", ["downcase_mesh_term"], name: "index_browse_interventions_on_downcase_mesh_term", using: :btree
   add_index "browse_interventions", ["mesh_term"], name: "index_browse_interventions_on_mesh_term", using: :btree
   add_index "browse_interventions", ["nct_id"], name: "index_browse_interventions_on_nct_id", using: :btree
 
@@ -81,7 +85,7 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.integer "actual_duration"
     t.boolean "were_results_reported",       default: false
     t.integer "months_to_report_results"
-    t.boolean "has_us_facility",             default: false
+    t.boolean "has_us_facility"
     t.boolean "has_single_facility",         default: false
     t.integer "minimum_age_num"
     t.integer "maximum_age_num"
@@ -106,7 +110,11 @@ ActiveRecord::Schema.define(version: 20161212174016) do
   create_table "conditions", force: :cascade do |t|
     t.string "nct_id"
     t.string "name"
+    t.string "downcase_name"
   end
+
+  add_index "conditions", ["downcase_name"], name: "index_conditions_on_downcase_name", using: :btree
+  add_index "conditions", ["name"], name: "index_conditions_on_name", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string  "nct_id"
@@ -270,7 +278,11 @@ ActiveRecord::Schema.define(version: 20161212174016) do
   create_table "keywords", force: :cascade do |t|
     t.string "nct_id"
     t.string "name"
+    t.string "downcase_name"
   end
+
+  add_index "keywords", ["downcase_name"], name: "index_keywords_on_downcase_name", using: :btree
+  add_index "keywords", ["name"], name: "index_keywords_on_name", using: :btree
 
   create_table "links", force: :cascade do |t|
     t.string "nct_id"
@@ -384,6 +396,7 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.string "units_analyzed"
     t.string "dispersion_type"
     t.string "param_type"
+    t.date   "anticipated_posting_date"
   end
 
   add_index "outcomes", ["dispersion_type"], name: "index_outcomes_on_dispersion_type", using: :btree
@@ -404,6 +417,35 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.text   "recruitment_details"
     t.text   "pre_assignment_details"
   end
+
+  create_table "public_announcements", force: :cascade do |t|
+    t.string  "description"
+    t.boolean "is_sticky"
+  end
+
+  create_table "removed_users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "removed_users", ["email"], name: "index_removed_users_on_email", using: :btree
+  add_index "removed_users", ["username"], name: "index_removed_users_on_username", using: :btree
 
   create_table "reported_events", force: :cascade do |t|
     t.string  "nct_id"
@@ -476,10 +518,6 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "sanity_checks", ["created_at"], name: "index_sanity_checks_on_created_at", using: :btree
-  add_index "sanity_checks", ["most_current"], name: "index_sanity_checks_on_most_current", using: :btree
-  add_index "sanity_checks", ["table_name"], name: "index_sanity_checks_on_table_name", using: :btree
-
   create_table "sponsors", force: :cascade do |t|
     t.string "nct_id"
     t.string "agency_class"
@@ -493,10 +531,22 @@ ActiveRecord::Schema.define(version: 20161212174016) do
   create_table "studies", id: false, force: :cascade do |t|
     t.string   "nct_id"
     t.string   "nlm_download_date_description"
-    t.date     "first_received_date"
-    t.date     "last_changed_date"
-    t.date     "first_received_results_date"
-    t.date     "received_results_disposit_date"
+    t.date     "study_first_submitted_date"
+    t.date     "results_first_submitted_date"
+    t.date     "disposition_first_submitted_date"
+    t.date     "last_update_submitted_date"
+    t.date     "study_first_submitted_qc_date"
+    t.date     "study_first_posted_date"
+    t.string   "study_first_posted_date_type"
+    t.date     "results_first_submitted_qc_date"
+    t.date     "results_first_posted_date"
+    t.string   "results_first_posted_date_type"
+    t.date     "disposition_first_submitted_qc_date"
+    t.date     "disposition_first_posted_date"
+    t.string   "disposition_first_posted_date_type"
+    t.date     "last_update_submitted_qc_date"
+    t.date     "last_update_posted_date"
+    t.string   "last_update_posted_date_type"
     t.string   "start_month_year"
     t.string   "start_date_type"
     t.date     "start_date"
@@ -538,23 +588,25 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.text     "biospec_description"
     t.string   "plan_to_share_ipd"
     t.string   "plan_to_share_ipd_description"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "studies", ["completion_date"], name: "index_studies_on_completion_date", using: :btree
+  add_index "studies", ["disposition_first_submitted_date"], name: "index_studies_on_disposition_first_submitted_date", using: :btree
   add_index "studies", ["enrollment_type"], name: "index_studies_on_enrollment_type", using: :btree
-  add_index "studies", ["first_received_results_date"], name: "index_studies_on_first_received_results_date", using: :btree
   add_index "studies", ["last_known_status"], name: "index_studies_on_last_known_status", using: :btree
+  add_index "studies", ["last_update_submitted_date"], name: "index_studies_on_last_update_submitted_date", using: :btree
   add_index "studies", ["nct_id"], name: "index_studies_on_nct_id", unique: true, using: :btree
   add_index "studies", ["overall_status"], name: "index_studies_on_overall_status", using: :btree
   add_index "studies", ["phase"], name: "index_studies_on_phase", using: :btree
   add_index "studies", ["primary_completion_date"], name: "index_studies_on_primary_completion_date", using: :btree
   add_index "studies", ["primary_completion_date_type"], name: "index_studies_on_primary_completion_date_type", using: :btree
-  add_index "studies", ["received_results_disposit_date"], name: "index_studies_on_received_results_disposit_date", using: :btree
+  add_index "studies", ["results_first_submitted_date"], name: "index_studies_on_results_first_submitted_date", using: :btree
   add_index "studies", ["source"], name: "index_studies_on_source", using: :btree
   add_index "studies", ["start_date"], name: "index_studies_on_start_date", using: :btree
   add_index "studies", ["start_date_type"], name: "index_studies_on_start_date_type", using: :btree
+  add_index "studies", ["study_first_submitted_date"], name: "index_studies_on_study_first_submitted_date", using: :btree
   add_index "studies", ["study_type"], name: "index_studies_on_study_type", using: :btree
 
   create_table "study_references", force: :cascade do |t|
@@ -573,9 +625,6 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
-
-  add_index "study_xml_records", ["created_study_at"], name: "index_study_xml_records_on_created_study_at", using: :btree
-  add_index "study_xml_records", ["nct_id"], name: "index_study_xml_records_on_nct_id", using: :btree
 
   create_table "use_case_attachments", force: :cascade do |t|
     t.integer  "use_case_id"
@@ -599,6 +648,39 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  create_table "user_events", force: :cascade do |t|
+    t.string   "email"
+    t.string   "event_type"
+    t.text     "description"
+    t.string   "file_names"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+  end
+
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "baseline_counts", "result_groups", name: "baseline_c_result_group_id_fkey"
   add_foreign_key "baseline_measurements", "result_groups", name: "baseline_m_result_group_id_fkey"
