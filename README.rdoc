@@ -12,13 +12,17 @@ Then point pgmodeler to the aact_schema database:
 
 Open pgmodeler
 Select:  File - Import
-Select:  Connection:  local-db
+Select:  Connection:  <db-server defined in database.yml>
 Select:  Database:  aact_schema
-Select:  Schema - Public
+Select:  Schema - ctgov
 
 Press: [Import]
 
 Once you generate and clean up the schema diagram, export it as a png file & copy to:
-1. AACT file server where it's available to the website (currently on server at /var/local/share/documentation)
+
+1. AACT file server where it's available to the website (currently on server at /aact-files/documentation)
 2. public directory here to get checked in to git repo
+
+sudo scp public/aact_admin_schema.png ctti_aact@ctti-web-dev-01.oit.duke.edu:/aact-files/documentation
+sudo scp public/aact_schema.png ctti_aact@ctti-web-dev-01.oit.duke.edu:/aact-files/documentation
 
