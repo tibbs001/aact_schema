@@ -1,6 +1,6 @@
-rake db:drop
-rake db:create
-rake db:migrate
+bundle exec rake db:drop
+bundle exec rake db:create
+bundle exec rake db:migrate
 #rm app/models/*
 #rm app/models/default/*
 raremap
