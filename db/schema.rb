@@ -189,6 +189,17 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.text   "description"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "nct_id"
+    t.string "document_id"
+    t.string "document_type"
+    t.string "url"
+    t.text   "comment"
+  end
+
+  add_index "documents", ["document_id"], name: "index_documents_on_document_id", using: :btree
+  add_index "documents", ["document_type"], name: "index_documents_on_document_type", using: :btree
+
   create_table "drop_withdrawals", force: :cascade do |t|
     t.string  "nct_id"
     t.integer "result_group_id"
@@ -325,7 +336,8 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.decimal "param_value"
     t.string  "dispersion_type"
     t.decimal "dispersion_value"
-    t.decimal "p_value"
+    t.string  "p_value_modifier"
+    t.float   "p_value"
     t.string  "ci_n_sides"
     t.decimal "ci_percent"
     t.decimal "ci_lower_limit"
@@ -391,12 +403,12 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.text   "description"
     t.text   "time_frame"
     t.text   "population"
+    t.date   "anticipated_posting_date"
     t.string "anticipated_posting_month_year"
     t.string "units"
     t.string "units_analyzed"
     t.string "dispersion_type"
     t.string "param_type"
-    t.date   "anticipated_posting_date"
   end
 
   add_index "outcomes", ["dispersion_type"], name: "index_outcomes_on_dispersion_type", using: :btree
@@ -416,6 +428,13 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.string "nct_id"
     t.text   "recruitment_details"
     t.text   "pre_assignment_details"
+  end
+
+  create_table "pending_results", force: :cascade do |t|
+    t.string "nct_id"
+    t.string "event"
+    t.string "event_date_description"
+    t.date   "event_date"
   end
 
   create_table "public_announcements", force: :cascade do |t|
@@ -697,6 +716,7 @@ ActiveRecord::Schema.define(version: 20161212174016) do
   add_foreign_key "design_outcomes", "studies", column: "nct_id", primary_key: "nct_id", name: "design_outcomes_nct_id_fkey"
   add_foreign_key "designs", "studies", column: "nct_id", primary_key: "nct_id", name: "designs_nct_id_fkey"
   add_foreign_key "detailed_descriptions", "studies", column: "nct_id", primary_key: "nct_id", name: "detailed_descriptions_nct_id_fkey"
+  add_foreign_key "documents", "studies", column: "nct_id", primary_key: "nct_id", name: "documents_nct_id_fkey"
   add_foreign_key "drop_withdrawals", "result_groups", name: "drop_with_group_id_fkey"
   add_foreign_key "eligibilities", "studies", column: "nct_id", primary_key: "nct_id", name: "eligibilities_nct_id_fkey"
   add_foreign_key "facilities", "studies", column: "nct_id", primary_key: "nct_id", name: "facilities_nct_id_fkey"
@@ -717,6 +737,7 @@ ActiveRecord::Schema.define(version: 20161212174016) do
   add_foreign_key "outcome_measurements", "result_groups", name: "outcome_measurement_group_id_fkey"
   add_foreign_key "overall_officials", "studies", column: "nct_id", primary_key: "nct_id", name: "overall_officials_nct_id_fkey"
   add_foreign_key "participant_flows", "studies", column: "nct_id", primary_key: "nct_id", name: "part_flow_id_fkey"
+  add_foreign_key "pending_results", "studies", column: "nct_id", primary_key: "nct_id", name: "pending_results_id_fkey"
   add_foreign_key "reported_events", "result_groups", name: "reported_events_result_group_id_fkey"
   add_foreign_key "responsible_parties", "studies", column: "nct_id", primary_key: "nct_id", name: "responsible_parties_nct_id_fkey"
   add_foreign_key "result_agreements", "studies", column: "nct_id", primary_key: "nct_id", name: "result_agreements_nct_id_fkey"

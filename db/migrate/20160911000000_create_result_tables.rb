@@ -2,6 +2,13 @@ class CreateResultTables < ActiveRecord::Migration
 
   def change
 
+    create_table "pending_results", force: :cascade do |t|
+      t.string "nct_id"
+      t.string "event"
+      t.string "event_date_description"
+      t.date   "event_date"
+    end
+
     create_table "result_agreements", force: :cascade do |t|
       t.string "nct_id"
       t.string "pi_employee"
@@ -118,12 +125,12 @@ class CreateResultTables < ActiveRecord::Migration
       t.text    "description"
       t.text    "time_frame"
       t.text    "population"
+      t.date    "anticipated_posting_date"
       t.string  "anticipated_posting_month_year"
       t.string  "units"
       t.string  "units_analyzed"
       t.string  "dispersion_type"
       t.string  "param_type"
-      t.date    "anticipated_posting_date"
     end
 
     create_table "outcome_counts", force: :cascade do |t|
@@ -166,7 +173,8 @@ class CreateResultTables < ActiveRecord::Migration
       t.decimal "param_value"
       t.string  "dispersion_type"
       t.decimal "dispersion_value"
-      t.decimal "p_value"
+      t.string  "p_value_modifier"
+      t.float   "p_value",  :precision => 7, :scale => 6
       t.string  "ci_n_sides"
       t.decimal "ci_percent"
       t.decimal "ci_lower_limit"
