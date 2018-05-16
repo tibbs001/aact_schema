@@ -2,12 +2,12 @@ class CreateAdminTables < ActiveRecord::Migration
 
   def change
 
-    create_table "public_announcements", force: :cascade do |t|
+    create_table "admin.public_announcements", force: :cascade do |t|
       t.string   "description"
       t.boolean  "is_sticky"
     end
 
-    create_table "load_events", force: :cascade do |t|
+    create_table "admin.load_events", force: :cascade do |t|
       t.string   "event_type"
       t.string   "status"
       t.text     "description"
@@ -20,7 +20,7 @@ class CreateAdminTables < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table "user_events", force: :cascade do |t|
+    create_table "admin.user_events", force: :cascade do |t|
       t.string   "email"
       t.string   "event_type"
       t.text     "description"
@@ -28,7 +28,7 @@ class CreateAdminTables < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table "sanity_checks", force: :cascade do |t|
+    create_table "admin.sanity_checks", force: :cascade do |t|
       t.string   'table_name'
       t.string   'nct_id'
       t.integer  'row_count'
@@ -37,14 +37,14 @@ class CreateAdminTables < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table "study_xml_records", force: :cascade do |t|
+    create_table "admin.study_xml_records", force: :cascade do |t|
       t.string   "nct_id"
       t.xml      "content"
       t.datetime "created_study_at"
       t.timestamps null: false
     end
 
-    create_table :data_definitions do |t|
+    create_table "admin.data_definitions" do |t|
       t.string 'db_section'
       t.string 'table_name'
       t.string 'column_name'
@@ -57,7 +57,7 @@ class CreateAdminTables < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :use_cases do |t|
+    create_table "admin.use_cases" do |t|
       t.string 'status'
       t.string 'title'
       t.string 'brief_summary'
@@ -71,14 +71,14 @@ class CreateAdminTables < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :use_case_attachments do |t|
+    create_table "admin.use_case_attachments" do |t|
       t.integer 'use_case_id'
       t.string 'file_name'
       t.binary 'payload'
       t.timestamps null: false
     end
 
-    create_table(:users) do |t|
+    create_table "admin.users" do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -101,7 +101,7 @@ class CreateAdminTables < ActiveRecord::Migration
       t.datetime :confirmation_sent_at
     end
 
-    create_table(:removed_users) do |t|
+    create_table "admin.removed_users" do |t|
       t.string   :email
       t.string   :encrypted_password
       t.string   :reset_password_token
@@ -127,6 +127,7 @@ class CreateAdminTables < ActiveRecord::Migration
     add_index :users, :confirmation_token,   unique: true
     add_index :removed_users, :email, unique: false
     add_index :removed_users, :username, unique: false
+    add_foreign_key "use_case_attachments",       "use_cases", column: 'use_case_id', primary_key: 'id', name: "use_case_attach_use_case_id_fkey"
 
   end
 
