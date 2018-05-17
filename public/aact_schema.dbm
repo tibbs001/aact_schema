@@ -3,41 +3,41 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="249,1182" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="56,905" last-zoom="1"
 	 default-schema="public" default-owner="postgres">
-<role name="tibbs001"
+<role name="ctti"
       superuser="true"
-      createdb="true"
-      replication="true"
-      createrole="true"
       inherit="true"
       login="true"
       encrypted="true"
-      password="********"
-      sql-disabled="true">
+      password="********">
 </role>
 
 <database name="aact_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
-	<role name="tibbs001"/>
+	<role name="ctti"/>
 	<tablespace name="pg_default"/>
 </database>
 
 <schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
+<schema name="ctgov" rect-visible="true" fill-color="#abcee3">
+	<role name="ctti"/>
+</schema>
+
 <sequence name="brief_summaries_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="brief_summaries">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="240" y="199"/>
-	<column name="id" not-null="true" sequence="public.brief_summaries_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="440" y="160"/>
+	<column name="id" not-null="true" sequence="ctgov.brief_summaries_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -46,7 +46,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="brief_summaries_pkey" type="pk-constr" table="public.brief_summaries">
+	<constraint name="brief_summaries_pkey" type="pk-constr" table="ctgov.brief_summaries">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -55,15 +55,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="browse_conditions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="460" y="199"/>
-	<column name="id" not-null="true" sequence="public.browse_conditions_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="780" y="60"/>
+	<column name="id" not-null="true" sequence="ctgov.browse_conditions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -72,7 +72,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="mesh_term">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="browse_conditions_pkey" type="pk-constr" table="public.browse_conditions">
+	<column name="downcase_mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="browse_conditions_pkey" type="pk-constr" table="ctgov.browse_conditions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -81,15 +84,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="browse_interventions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="760" y="220"/>
-	<column name="id" not-null="true" sequence="public.browse_interventions_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="520" y="60"/>
+	<column name="id" not-null="true" sequence="ctgov.browse_interventions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -98,7 +101,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="mesh_term">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="browse_interventions_pkey" type="pk-constr" table="public.browse_interventions">
+	<column name="downcase_mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="browse_interventions_pkey" type="pk-constr" table="ctgov.browse_interventions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -107,15 +113,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="calculated_values">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1020" y="260"/>
-	<column name="id" not-null="true" sequence="public.calculated_values_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1140" y="59"/>
+	<column name="id" not-null="true" sequence="ctgov.calculated_values_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -145,7 +151,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="months_to_report_results">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="has_us_facility" default-value="false">
+	<column name="has_us_facility">
 		<type name="boolean" length="0"/>
 	</column>
 	<column name="has_single_facility" default-value="false">
@@ -163,7 +169,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="maximum_age_unit">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="calculated_values_pkey" type="pk-constr" table="public.calculated_values">
+	<constraint name="calculated_values_pkey" type="pk-constr" table="ctgov.calculated_values">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -172,15 +178,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="central_contacts">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1120" y="1180"/>
-	<column name="id" not-null="true" sequence="public.central_contacts_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1180" y="700"/>
+	<column name="id" not-null="true" sequence="ctgov.central_contacts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -198,7 +204,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="email">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="central_contacts_pkey" type="pk-constr" table="public.central_contacts">
+	<constraint name="central_contacts_pkey" type="pk-constr" table="ctgov.central_contacts">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -207,15 +213,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="conditions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="400" y="480"/>
-	<column name="id" not-null="true" sequence="public.conditions_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="900" y="140"/>
+	<column name="id" not-null="true" sequence="ctgov.conditions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -224,7 +230,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="name">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="conditions_pkey" type="pk-constr" table="public.conditions">
+	<column name="downcase_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="conditions_pkey" type="pk-constr" table="ctgov.conditions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -233,15 +242,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="countries">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1100" y="540"/>
-	<column name="id" not-null="true" sequence="public.countries_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1180" y="280"/>
+	<column name="id" not-null="true" sequence="ctgov.countries_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -253,7 +262,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="removed">
 		<type name="boolean" length="0"/>
 	</column>
-	<constraint name="countries_pkey" type="pk-constr" table="public.countries">
+	<constraint name="countries_pkey" type="pk-constr" table="ctgov.countries">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -262,15 +271,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="design_group_interventions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="20" y="500"/>
-	<column name="id" not-null="true" sequence="public.design_group_interventions_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="160" y="279"/>
+	<column name="id" not-null="true" sequence="ctgov.design_group_interventions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -282,7 +291,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="intervention_id">
 		<type name="integer" length="0"/>
 	</column>
-	<constraint name="design_group_interventions_pkey" type="pk-constr" table="public.design_group_interventions">
+	<constraint name="design_group_interventions_pkey" type="pk-constr" table="ctgov.design_group_interventions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -291,15 +300,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="design_groups">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="260" y="560"/>
-	<column name="id" not-null="true" sequence="public.design_groups_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="300" y="380"/>
+	<column name="id" not-null="true" sequence="ctgov.design_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -314,7 +323,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="design_groups_pkey" type="pk-constr" table="public.design_groups">
+	<constraint name="design_groups_pkey" type="pk-constr" table="ctgov.design_groups">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -323,15 +332,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="design_outcomes">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="20" y="900"/>
-	<column name="id" not-null="true" sequence="public.design_outcomes_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="160" y="679"/>
+	<column name="id" not-null="true" sequence="ctgov.design_outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -352,7 +361,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="design_outcomes_pkey" type="pk-constr" table="public.design_outcomes">
+	<constraint name="design_outcomes_pkey" type="pk-constr" table="ctgov.design_outcomes">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -361,15 +370,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="designs">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="20" y="280"/>
-	<column name="id" not-null="true" sequence="public.designs_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="160" y="60"/>
+	<column name="id" not-null="true" sequence="ctgov.designs_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -411,7 +420,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="outcomes_assessor_masked">
 		<type name="boolean" length="0"/>
 	</column>
-	<constraint name="designs_pkey" type="pk-constr" table="public.designs">
+	<constraint name="designs_pkey" type="pk-constr" table="ctgov.designs">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -420,15 +429,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="detailed_descriptions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="580" y="340"/>
-	<column name="id" not-null="true" sequence="public.detailed_descriptions_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="660" y="160"/>
+	<column name="id" not-null="true" sequence="ctgov.detailed_descriptions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -437,7 +446,42 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="detailed_descriptions_pkey" type="pk-constr" table="public.detailed_descriptions">
+	<constraint name="detailed_descriptions_pkey" type="pk-constr" table="ctgov.detailed_descriptions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="documents_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="documents">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="380" y="1160"/>
+	<column name="id" not-null="true" sequence="ctgov.documents_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="document_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="document_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="url">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="comment">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="documents_pkey" type="pk-constr" table="ctgov.documents">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -446,15 +490,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="eligibilities">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="80" y="1040"/>
-	<column name="id" not-null="true" sequence="public.eligibilities_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="160" y="800"/>
+	<column name="id" not-null="true" sequence="ctgov.eligibilities_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -487,7 +531,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="gender_based">
 		<type name="boolean" length="0"/>
 	</column>
-	<constraint name="eligibilities_pkey" type="pk-constr" table="public.eligibilities">
+	<constraint name="eligibilities_pkey" type="pk-constr" table="ctgov.eligibilities">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -496,15 +540,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="facilities">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="940" y="900"/>
-	<column name="id" not-null="true" sequence="public.facilities_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="980" y="500"/>
+	<column name="id" not-null="true" sequence="ctgov.facilities_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -528,7 +572,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="country">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="facilities_pkey" type="pk-constr" table="public.facilities">
+	<constraint name="facilities_pkey" type="pk-constr" table="ctgov.facilities">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -537,15 +581,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="facility_contacts">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1140" y="760"/>
-	<column name="id" not-null="true" sequence="public.facility_contacts_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1200" y="360"/>
+	<column name="id" not-null="true" sequence="ctgov.facility_contacts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -566,7 +610,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="phone">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="facility_contacts_pkey" type="pk-constr" table="public.facility_contacts">
+	<constraint name="facility_contacts_pkey" type="pk-constr" table="ctgov.facility_contacts">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -575,15 +619,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="facility_investigators">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1160" y="920"/>
-	<column name="id" not-null="true" sequence="public.facility_investigators_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1220" y="500"/>
+	<column name="id" not-null="true" sequence="ctgov.facility_investigators_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -598,7 +642,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="name">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="facility_investigators_pkey" type="pk-constr" table="public.facility_investigators">
+	<constraint name="facility_investigators_pkey" type="pk-constr" table="ctgov.facility_investigators">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -607,15 +651,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="id_information">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="60" y="1260"/>
-	<column name="id" not-null="true" sequence="public.id_information_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="160" y="980"/>
+	<column name="id" not-null="true" sequence="ctgov.id_information_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -627,7 +671,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id_value">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="id_information_pkey" type="pk-constr" table="public.id_information">
+	<constraint name="id_information_pkey" type="pk-constr" table="ctgov.id_information">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -636,15 +680,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="intervention_other_names">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="20" y="799"/>
-	<column name="id" not-null="true" sequence="public.intervention_other_names_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="140" y="600"/>
+	<column name="id" not-null="true" sequence="ctgov.intervention_other_names_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -656,7 +700,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="name">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="intervention_other_names_pkey" type="pk-constr" table="public.intervention_other_names">
+	<constraint name="intervention_other_names_pkey" type="pk-constr" table="ctgov.intervention_other_names">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -665,15 +709,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="interventions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="40" y="660"/>
-	<column name="id" not-null="true" sequence="public.interventions_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="140" y="480"/>
+	<column name="id" not-null="true" sequence="ctgov.interventions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -688,7 +732,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="interventions_pkey" type="pk-constr" table="public.interventions">
+	<constraint name="interventions_pkey" type="pk-constr" table="ctgov.interventions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -697,15 +741,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="keywords">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="840" y="540"/>
-	<column name="id" not-null="true" sequence="public.keywords_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="920" y="260"/>
+	<column name="id" not-null="true" sequence="ctgov.keywords_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -714,7 +758,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="name">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="keywords_pkey" type="pk-constr" table="public.keywords">
+	<column name="downcase_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="keywords_pkey" type="pk-constr" table="ctgov.keywords">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -723,15 +770,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="links">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="40" y="1380"/>
-	<column name="id" not-null="true" sequence="public.links_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="140" y="1079"/>
+	<column name="id" not-null="true" sequence="ctgov.links_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -743,7 +790,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="links_pkey" type="pk-constr" table="public.links">
+	<constraint name="links_pkey" type="pk-constr" table="ctgov.links">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -752,15 +799,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="overall_officials">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1100" y="1280"/>
-	<column name="id" not-null="true" sequence="public.overall_officials_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1180" y="800"/>
+	<column name="id" not-null="true" sequence="ctgov.overall_officials_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -775,7 +822,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="affiliation">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="overall_officials_pkey" type="pk-constr" table="public.overall_officials">
+	<constraint name="overall_officials_pkey" type="pk-constr" table="ctgov.overall_officials">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -784,15 +831,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="responsible_parties">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1060" y="1400"/>
-	<column name="id" not-null="true" sequence="public.responsible_parties_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1140" y="900"/>
+	<column name="id" not-null="true" sequence="ctgov.responsible_parties_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -813,7 +860,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="affiliation">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="responsible_parties_pkey" type="pk-constr" table="public.responsible_parties">
+	<constraint name="responsible_parties_pkey" type="pk-constr" table="ctgov.responsible_parties">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -822,15 +869,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="sponsors">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1100" y="1060"/>
-	<column name="id" not-null="true" sequence="public.sponsors_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1180" y="600"/>
+	<column name="id" not-null="true" sequence="ctgov.sponsors_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -845,32 +892,68 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="name">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="sponsors_pkey" type="pk-constr" table="public.sponsors">
+	<constraint name="sponsors_pkey" type="pk-constr" table="ctgov.sponsors">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
 <table name="studies">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="500" y="979"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="560" y="280"/>
 	<column name="nct_id">
 		<type name="character varying" length="0"/>
 	</column>
 	<column name="nlm_download_date_description">
 		<type name="character varying" length="0"/>
 	</column>
-	<column name="first_received_date">
+	<column name="study_first_submitted_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="last_changed_date">
+	<column name="results_first_submitted_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="first_received_results_date">
+	<column name="disposition_first_submitted_date">
 		<type name="date" length="0"/>
 	</column>
-	<column name="received_results_disposit_date">
+	<column name="last_update_submitted_date">
 		<type name="date" length="0"/>
+	</column>
+	<column name="study_first_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="study_first_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="study_first_posted_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="results_first_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="results_first_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="results_first_posted_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="disposition_first_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="disposition_first_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="disposition_first_posted_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="last_update_submitted_qc_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_update_posted_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_update_posted_date_type">
+		<type name="character varying" length="0"/>
 	</column>
 	<column name="start_month_year">
 		<type name="character varying" length="0"/>
@@ -1007,15 +1090,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="study_references">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="60" y="1480"/>
-	<column name="id" not-null="true" sequence="public.study_references_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="140" y="1159"/>
+	<column name="id" not-null="true" sequence="ctgov.study_references_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1030,7 +1113,39 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="citation">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="study_references_pkey" type="pk-constr" table="public.study_references">
+	<constraint name="study_references_pkey" type="pk-constr" table="ctgov.study_references">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="pending_results_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="pending_results">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="540" y="1080"/>
+	<column name="id" not-null="true" sequence="ctgov.pending_results_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="event">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="event_date_description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="event_date">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="pending_results_pkey" type="pk-constr" table="ctgov.pending_results">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1039,15 +1154,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="result_agreements">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="120" y="1599"/>
-	<column name="id" not-null="true" sequence="public.result_agreements_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="180" y="1259"/>
+	<column name="id" not-null="true" sequence="ctgov.result_agreements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1059,7 +1174,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="agreement">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="result_agreements_pkey" type="pk-constr" table="public.result_agreements">
+	<constraint name="result_agreements_pkey" type="pk-constr" table="ctgov.result_agreements">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1068,15 +1183,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="result_contacts">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1060" y="1520"/>
-	<column name="id" not-null="true" sequence="public.result_contacts_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1160" y="1040"/>
+	<column name="id" not-null="true" sequence="ctgov.result_contacts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1094,7 +1209,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="email">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="result_contacts_pkey" type="pk-constr" table="public.result_contacts">
+	<constraint name="result_contacts_pkey" type="pk-constr" table="ctgov.result_contacts">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1103,15 +1218,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="result_groups">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="480" y="1580"/>
-	<column name="id" not-null="true" sequence="public.result_groups_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="720" y="1180"/>
+	<column name="id" not-null="true" sequence="ctgov.result_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1129,7 +1244,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="result_groups_pkey" type="pk-constr" table="public.result_groups">
+	<constraint name="result_groups_pkey" type="pk-constr" table="ctgov.result_groups">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1138,15 +1253,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="reported_events">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="80" y="1700"/>
-	<column name="id" not-null="true" sequence="public.reported_events_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="180" y="1339"/>
+	<column name="id" not-null="true" sequence="ctgov.reported_events_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1197,7 +1312,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="assessment">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="reported_events_pkey" type="pk-constr" table="public.reported_events">
+	<constraint name="reported_events_pkey" type="pk-constr" table="ctgov.reported_events">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1206,15 +1321,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="participant_flows">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1000" y="1640"/>
-	<column name="id" not-null="true" sequence="public.participant_flows_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="880" y="1040"/>
+	<column name="id" not-null="true" sequence="ctgov.participant_flows_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1226,7 +1341,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="pre_assignment_details">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="participant_flows_pkey" type="pk-constr" table="public.participant_flows">
+	<constraint name="participant_flows_pkey" type="pk-constr" table="ctgov.participant_flows">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1235,15 +1350,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="drop_withdrawals">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="980" y="1840"/>
-	<column name="id" not-null="true" sequence="public.drop_withdrawals_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1120" y="1360"/>
+	<column name="id" not-null="true" sequence="ctgov.drop_withdrawals_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1264,7 +1379,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="count">
 		<type name="integer" length="0"/>
 	</column>
-	<constraint name="drop_withdrawals_pkey" type="pk-constr" table="public.drop_withdrawals">
+	<constraint name="drop_withdrawals_pkey" type="pk-constr" table="ctgov.drop_withdrawals">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1273,15 +1388,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="milestones">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1020" y="1720"/>
-	<column name="id" not-null="true" sequence="public.milestones_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1140" y="1220"/>
+	<column name="id" not-null="true" sequence="ctgov.milestones_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1305,7 +1420,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="count">
 		<type name="integer" length="0"/>
 	</column>
-	<constraint name="milestones_pkey" type="pk-constr" table="public.milestones">
+	<constraint name="milestones_pkey" type="pk-constr" table="ctgov.milestones">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1314,15 +1429,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="baseline_measurements">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="80" y="2100"/>
-	<column name="id" not-null="true" sequence="public.baseline_measurements_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="200" y="1760"/>
+	<column name="id" not-null="true" sequence="ctgov.baseline_measurements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1376,7 +1491,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="explanation_of_na">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="baseline_measurements_pkey" type="pk-constr" table="public.baseline_measurements">
+	<constraint name="baseline_measurements_pkey" type="pk-constr" table="ctgov.baseline_measurements">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1385,15 +1500,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="baseline_counts">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="80" y="1960"/>
-	<column name="id" not-null="true" sequence="public.baseline_counts_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="200" y="1579"/>
+	<column name="id" not-null="true" sequence="ctgov.baseline_counts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1414,7 +1529,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="count">
 		<type name="integer" length="0"/>
 	</column>
-	<constraint name="baseline_counts_pkey" type="pk-constr" table="public.baseline_counts">
+	<constraint name="baseline_counts_pkey" type="pk-constr" table="ctgov.baseline_counts">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1423,15 +1538,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="outcomes">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="360" y="2120"/>
-	<column name="id" not-null="true" sequence="public.outcomes_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="760" y="1880"/>
+	<column name="id" not-null="true" sequence="ctgov.outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1452,6 +1567,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="population">
 		<type name="text" length="0"/>
 	</column>
+	<column name="anticipated_posting_date">
+		<type name="date" length="0"/>
+	</column>
 	<column name="anticipated_posting_month_year">
 		<type name="character varying" length="0"/>
 	</column>
@@ -1467,7 +1585,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="param_type">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="outcomes_pkey" type="pk-constr" table="public.outcomes">
+	<constraint name="outcomes_pkey" type="pk-constr" table="ctgov.outcomes">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1476,15 +1594,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="outcome_counts">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="400" y="1980"/>
-	<column name="id" not-null="true" sequence="public.outcome_counts_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="520" y="1700"/>
+	<column name="id" not-null="true" sequence="ctgov.outcome_counts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1508,7 +1626,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="count">
 		<type name="integer" length="0"/>
 	</column>
-	<constraint name="outcome_counts_pkey" type="pk-constr" table="public.outcome_counts">
+	<constraint name="outcome_counts_pkey" type="pk-constr" table="ctgov.outcome_counts">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1517,15 +1635,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="outcome_measurements">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="1020" y="1980"/>
-	<column name="id" not-null="true" sequence="public.outcome_measurements_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="1120" y="1540"/>
+	<column name="id" not-null="true" sequence="ctgov.outcome_measurements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1582,7 +1700,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="explanation_of_na">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="outcome_measurements_pkey" type="pk-constr" table="public.outcome_measurements">
+	<constraint name="outcome_measurements_pkey" type="pk-constr" table="ctgov.outcome_measurements">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1591,15 +1709,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="outcome_analyses">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="700" y="2000"/>
-	<column name="id" not-null="true" sequence="public.outcome_analyses_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="780" y="1540"/>
+	<column name="id" not-null="true" sequence="ctgov.outcome_analyses_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1626,8 +1744,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="dispersion_value">
 		<type name="numeric" length="0"/>
 	</column>
+	<column name="p_value_modifier">
+		<type name="character varying" length="0"/>
+	</column>
 	<column name="p_value">
-		<type name="numeric" length="0"/>
+		<type name="double precision" length="0"/>
 	</column>
 	<column name="ci_n_sides">
 		<type name="character varying" length="0"/>
@@ -1662,7 +1783,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="other_analysis_description">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="outcome_analyses_pkey" type="pk-constr" table="public.outcome_analyses">
+	<constraint name="outcome_analyses_pkey" type="pk-constr" table="ctgov.outcome_analyses">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -1671,15 +1792,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="outcome_analysis_groups">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="600" y="1860"/>
-	<column name="id" not-null="true" sequence="public.outcome_analysis_groups_id_seq">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+	<position x="780" y="1420"/>
+	<column name="id" not-null="true" sequence="ctgov.outcome_analysis_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -1694,60 +1815,92 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="ctgov_group_code">
 		<type name="character varying" length="0"/>
 	</column>
-	<constraint name="outcome_analysis_groups_pkey" type="pk-constr" table="public.outcome_analysis_groups">
+	<constraint name="outcome_analysis_groups_pkey" type="pk-constr" table="ctgov.outcome_analysis_groups">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
+
+<sequence name="public_announcements_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+</sequence>
 
 <sequence name="load_events_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+</sequence>
+
+<sequence name="user_events_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <sequence name="sanity_checks_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <sequence name="study_xml_records_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <sequence name="data_definitions_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <sequence name="use_cases_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
 <sequence name="use_case_attachments_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="ctgov"/>
+	<role name="ctti"/>
 </sequence>
 
-<index name="index_browse_conditions_on_nct_id" table="public.browse_conditions"
+<sequence name="users_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+</sequence>
+
+<sequence name="removed_users_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ctgov"/>
+	<role name="ctti"/>
+</sequence>
+
+<index name="index_overall_officials_on_nct_id" table="ctgov.overall_officials"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1755,7 +1908,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_browse_interventions_on_nct_id" table="public.browse_interventions"
+<index name="index_responsible_parties_on_nct_id" table="ctgov.responsible_parties"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1763,23 +1916,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_overall_officials_on_nct_id" table="public.overall_officials"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="nct_id"/>
-		</idxelement>
-</index>
-
-<index name="index_responsible_parties_on_nct_id" table="public.responsible_parties"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="nct_id"/>
-		</idxelement>
-</index>
-
-<index name="index_baseline_measurements_on_category" table="public.baseline_measurements"
+<index name="index_baseline_measurements_on_category" table="ctgov.baseline_measurements"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1787,7 +1924,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_baseline_measurements_on_classification" table="public.baseline_measurements"
+<index name="index_baseline_measurements_on_classification" table="ctgov.baseline_measurements"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1795,7 +1932,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_baseline_measurements_on_dispersion_type" table="public.baseline_measurements"
+<index name="index_baseline_measurements_on_dispersion_type" table="ctgov.baseline_measurements"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1803,7 +1940,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_baseline_measurements_on_param_type" table="public.baseline_measurements"
+<index name="index_baseline_measurements_on_param_type" table="ctgov.baseline_measurements"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1811,7 +1948,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_browse_conditions_on_mesh_term" table="public.browse_conditions"
+<index name="index_browse_conditions_on_downcase_mesh_term" table="ctgov.browse_conditions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_browse_conditions_on_mesh_term" table="ctgov.browse_conditions"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1819,7 +1964,23 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_browse_interventions_on_mesh_term" table="public.browse_interventions"
+<index name="index_browse_conditions_on_nct_id" table="ctgov.browse_conditions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_browse_interventions_on_downcase_mesh_term" table="ctgov.browse_interventions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_browse_interventions_on_mesh_term" table="ctgov.browse_interventions"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1827,7 +1988,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_calculated_values_on_actual_duration" table="public.calculated_values"
+<index name="index_browse_interventions_on_nct_id" table="ctgov.browse_interventions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="nct_id"/>
+		</idxelement>
+</index>
+
+<index name="index_calculated_values_on_actual_duration" table="ctgov.calculated_values"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1835,7 +2004,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_calculated_values_on_months_to_report_results" table="public.calculated_values"
+<index name="index_calculated_values_on_months_to_report_results" table="ctgov.calculated_values"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1843,7 +2012,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_calculated_values_on_number_of_facilities" table="public.calculated_values"
+<index name="index_calculated_values_on_number_of_facilities" table="ctgov.calculated_values"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1851,7 +2020,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_central_contacts_on_contact_type" table="public.central_contacts"
+<index name="index_central_contacts_on_contact_type" table="ctgov.central_contacts"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1859,7 +2028,23 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_design_groups_on_group_type" table="public.design_groups"
+<index name="index_conditions_on_name" table="ctgov.conditions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="name"/>
+		</idxelement>
+</index>
+
+<index name="index_conditions_on_downcase_name" table="ctgov.conditions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_name"/>
+		</idxelement>
+</index>
+
+<index name="index_design_groups_on_group_type" table="ctgov.design_groups"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1867,7 +2052,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_design_outcomes_on_outcome_type" table="public.design_outcomes"
+<index name="index_design_outcomes_on_outcome_type" table="ctgov.design_outcomes"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1875,7 +2060,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_designs_on_masking" table="public.designs"
+<index name="index_designs_on_masking" table="ctgov.designs"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1883,7 +2068,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_designs_on_subject_masked" table="public.designs"
+<index name="index_designs_on_subject_masked" table="ctgov.designs"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1891,7 +2076,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_designs_on_caregiver_masked" table="public.designs"
+<index name="index_designs_on_caregiver_masked" table="ctgov.designs"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1899,7 +2084,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_designs_on_investigator_masked" table="public.designs"
+<index name="index_designs_on_investigator_masked" table="ctgov.designs"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1907,7 +2092,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_designs_on_outcomes_assessor_masked" table="public.designs"
+<index name="index_designs_on_outcomes_assessor_masked" table="ctgov.designs"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1915,7 +2100,23 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_drop_withdrawals_on_period" table="public.drop_withdrawals"
+<index name="index_documents_on_document_id" table="ctgov.documents"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="document_id"/>
+		</idxelement>
+</index>
+
+<index name="index_documents_on_document_type" table="ctgov.documents"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="document_type"/>
+		</idxelement>
+</index>
+
+<index name="index_drop_withdrawals_on_period" table="ctgov.drop_withdrawals"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1923,7 +2124,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_eligibilities_on_gender" table="public.eligibilities"
+<index name="index_eligibilities_on_gender" table="ctgov.eligibilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1931,7 +2132,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_eligibilities_on_healthy_volunteers" table="public.eligibilities"
+<index name="index_eligibilities_on_healthy_volunteers" table="ctgov.eligibilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1939,7 +2140,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_eligibilities_on_minimum_age" table="public.eligibilities"
+<index name="index_eligibilities_on_minimum_age" table="ctgov.eligibilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1947,7 +2148,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_eligibilities_on_maximum_age" table="public.eligibilities"
+<index name="index_eligibilities_on_maximum_age" table="ctgov.eligibilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1955,7 +2156,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_facilities_on_status" table="public.facilities"
+<index name="index_facilities_on_status" table="ctgov.facilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1963,7 +2164,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_facilities_on_name" table="public.facilities"
+<index name="index_facilities_on_name" table="ctgov.facilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1971,7 +2172,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_facilities_on_city" table="public.facilities"
+<index name="index_facilities_on_city" table="ctgov.facilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1979,7 +2180,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_facilities_on_state" table="public.facilities"
+<index name="index_facilities_on_state" table="ctgov.facilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1987,7 +2188,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_facilities_on_country" table="public.facilities"
+<index name="index_facilities_on_country" table="ctgov.facilities"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -1995,7 +2196,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_facility_contacts_on_contact_type" table="public.facility_contacts"
+<index name="index_facility_contacts_on_contact_type" table="ctgov.facility_contacts"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2003,7 +2204,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_id_information_on_id_type" table="public.id_information"
+<index name="index_id_information_on_id_type" table="ctgov.id_information"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2011,7 +2212,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_interventions_on_intervention_type" table="public.interventions"
+<index name="index_interventions_on_intervention_type" table="ctgov.interventions"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2019,135 +2220,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_milestones_on_period" table="public.milestones"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="period"/>
-		</idxelement>
-</index>
-
-<index name="index_overall_officials_on_affiliation" table="public.overall_officials"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="affiliation"/>
-		</idxelement>
-</index>
-
-<index name="index_outcome_analyses_on_dispersion_type" table="public.outcome_analyses"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="dispersion_type"/>
-		</idxelement>
-</index>
-
-<index name="index_outcome_analyses_on_param_type" table="public.outcome_analyses"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="param_type"/>
-		</idxelement>
-</index>
-
-<index name="index_outcome_measurements_on_dispersion_type" table="public.outcome_measurements"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="dispersion_type"/>
-		</idxelement>
-</index>
-
-<index name="index_outcome_measurements_on_category" table="public.outcome_measurements"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="category"/>
-		</idxelement>
-</index>
-
-<index name="index_outcome_measurements_on_classification" table="public.outcome_measurements"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="classification"/>
-		</idxelement>
-</index>
-
-<index name="index_outcomes_on_dispersion_type" table="public.outcomes"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="dispersion_type"/>
-		</idxelement>
-</index>
-
-<index name="index_outcomes_on_param_type" table="public.outcomes"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="param_type"/>
-		</idxelement>
-</index>
-
-<index name="index_reported_events_on_event_type" table="public.reported_events"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="event_type"/>
-		</idxelement>
-</index>
-
-<index name="index_reported_events_on_subjects_affected" table="public.reported_events"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="subjects_affected"/>
-		</idxelement>
-</index>
-
-<index name="index_responsible_parties_on_organization" table="public.responsible_parties"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="organization"/>
-		</idxelement>
-</index>
-
-<index name="index_responsible_parties_on_responsible_party_type" table="public.responsible_parties"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="responsible_party_type"/>
-		</idxelement>
-</index>
-
-<index name="index_result_contacts_on_organization" table="public.result_contacts"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="organization"/>
-		</idxelement>
-</index>
-
-<index name="index_result_groups_on_result_type" table="public.result_groups"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="result_type"/>
-		</idxelement>
-</index>
-
-<index name="index_sponsors_on_agency_class" table="public.sponsors"
-	 concurrent="false" unique="false" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="agency_class"/>
-		</idxelement>
-</index>
-
-<index name="index_sponsors_on_name" table="public.sponsors"
+<index name="index_keywords_on_name" table="ctgov.keywords"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2155,7 +2228,151 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_completion_date" table="public.studies"
+<index name="index_keywords_on_downcase_name" table="ctgov.keywords"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_name"/>
+		</idxelement>
+</index>
+
+<index name="index_milestones_on_period" table="ctgov.milestones"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="period"/>
+		</idxelement>
+</index>
+
+<index name="index_overall_officials_on_affiliation" table="ctgov.overall_officials"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="affiliation"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_analyses_on_dispersion_type" table="ctgov.outcome_analyses"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_analyses_on_param_type" table="ctgov.outcome_analyses"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="param_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_measurements_on_dispersion_type" table="ctgov.outcome_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_measurements_on_category" table="ctgov.outcome_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="category"/>
+		</idxelement>
+</index>
+
+<index name="index_outcome_measurements_on_classification" table="ctgov.outcome_measurements"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="classification"/>
+		</idxelement>
+</index>
+
+<index name="index_outcomes_on_dispersion_type" table="ctgov.outcomes"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="dispersion_type"/>
+		</idxelement>
+</index>
+
+<index name="index_outcomes_on_param_type" table="ctgov.outcomes"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="param_type"/>
+		</idxelement>
+</index>
+
+<index name="index_reported_events_on_event_type" table="ctgov.reported_events"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="event_type"/>
+		</idxelement>
+</index>
+
+<index name="index_reported_events_on_subjects_affected" table="ctgov.reported_events"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="subjects_affected"/>
+		</idxelement>
+</index>
+
+<index name="index_responsible_parties_on_organization" table="ctgov.responsible_parties"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="organization"/>
+		</idxelement>
+</index>
+
+<index name="index_responsible_parties_on_responsible_party_type" table="ctgov.responsible_parties"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="responsible_party_type"/>
+		</idxelement>
+</index>
+
+<index name="index_result_contacts_on_organization" table="ctgov.result_contacts"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="organization"/>
+		</idxelement>
+</index>
+
+<index name="index_result_groups_on_result_type" table="ctgov.result_groups"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="result_type"/>
+		</idxelement>
+</index>
+
+<index name="index_sponsors_on_agency_class" table="ctgov.sponsors"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="agency_class"/>
+		</idxelement>
+</index>
+
+<index name="index_sponsors_on_name" table="ctgov.sponsors"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="name"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_completion_date" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2163,7 +2380,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_enrollment_type" table="public.studies"
+<index name="index_studies_on_enrollment_type" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2171,7 +2388,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_last_known_status" table="public.studies"
+<index name="index_studies_on_last_known_status" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2179,7 +2396,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_overall_status" table="public.studies"
+<index name="index_studies_on_overall_status" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2187,7 +2404,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_phase" table="public.studies"
+<index name="index_studies_on_phase" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2195,7 +2412,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_primary_completion_date" table="public.studies"
+<index name="index_studies_on_primary_completion_date" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2203,7 +2420,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_primary_completion_date_type" table="public.studies"
+<index name="index_studies_on_primary_completion_date_type" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2211,7 +2428,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_source" table="public.studies"
+<index name="index_studies_on_source" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2219,7 +2436,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_start_date" table="public.studies"
+<index name="index_studies_on_start_date" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2227,7 +2444,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_start_date_type" table="public.studies"
+<index name="index_studies_on_start_date_type" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2235,7 +2452,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_study_type" table="public.studies"
+<index name="index_studies_on_study_type" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2243,23 +2460,39 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_studies_on_first_received_results_date" table="public.studies"
+<index name="index_studies_on_study_first_submitted_date" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
-			<column name="first_received_results_date"/>
+			<column name="study_first_submitted_date"/>
 		</idxelement>
 </index>
 
-<index name="index_studies_on_received_results_disposit_date" table="public.studies"
+<index name="index_studies_on_results_first_submitted_date" table="ctgov.studies"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
-			<column name="received_results_disposit_date"/>
+			<column name="results_first_submitted_date"/>
 		</idxelement>
 </index>
 
-<index name="index_study_references_on_reference_type" table="public.study_references"
+<index name="index_studies_on_disposition_first_submitted_date" table="ctgov.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="disposition_first_submitted_date"/>
+		</idxelement>
+</index>
+
+<index name="index_studies_on_last_update_submitted_date" table="ctgov.studies"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="last_update_submitted_date"/>
+		</idxelement>
+</index>
+
+<index name="index_study_references_on_reference_type" table="ctgov.study_references"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -2268,511 +2501,576 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </index>
 
 <constraint name="brief_summaries_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.brief_summaries">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.brief_summaries">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="browse_conditions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.browse_conditions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.browse_conditions">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="browse_interventions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.browse_interventions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.browse_interventions">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="calculated_values_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.calculated_values">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.calculated_values">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="central_contacts_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.central_contacts">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.central_contacts">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="conditions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.conditions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.conditions">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="countries_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.countries">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.countries">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="design_groups_interventions_design_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.design_groups" table="public.design_group_interventions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.design_groups" table="ctgov.design_group_interventions">
 	<columns names="intervention_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="design_groups_interventions_intervention_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.interventions" table="public.design_group_interventions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.interventions" table="ctgov.design_group_interventions">
 	<columns names="design_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="design_groups_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.design_groups">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.design_groups">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="design_outcomes_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.design_outcomes">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.design_outcomes">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="designs_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.designs">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.designs">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="detailed_descriptions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.detailed_descriptions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.detailed_descriptions">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="documents_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.documents">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="eligibilities_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.eligibilities">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.eligibilities">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="facilities_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.facilities">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.facilities">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="facility_contacts_facility_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.facilities" table="public.facility_contacts">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.facilities" table="ctgov.facility_contacts">
 	<columns names="facility_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="facility_i_f_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.facilities" table="public.facility_investigators">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.facilities" table="ctgov.facility_investigators">
 	<columns names="facility_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="id_study_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.id_information">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.id_information">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="ion_intervention_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.interventions" table="public.intervention_other_names">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.interventions" table="ctgov.intervention_other_names">
 	<columns names="intervention_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="interventions_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.interventions">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.interventions">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="keywords_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.keywords">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.keywords">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="links_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.links">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.links">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="overall_officials_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.overall_officials">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.overall_officials">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="responsible_parties_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.responsible_parties">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.responsible_parties">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="sponsors_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.sponsors">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.sponsors">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="study_references_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.study_references">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.study_references">
+	<columns names="nct_id" ref-type="src-columns"/>
+	<columns names="nct_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pending_results_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.pending_results">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="result_agreements_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.result_agreements">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.result_agreements">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="result_contacts_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.result_contacts">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.result_contacts">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="result_groups_nct_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.result_groups">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.result_groups">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="reported_events_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.reported_events">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.reported_events">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="part_flow_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.studies" table="public.participant_flows">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.participant_flows">
 	<columns names="nct_id" ref-type="src-columns"/>
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="drop_with_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.drop_withdrawals">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.drop_withdrawals">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="milestones_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.milestones">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.milestones">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="baseline_m_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.baseline_measurements">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.baseline_measurements">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="baseline_c_result_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.baseline_counts">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.baseline_counts">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_count_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.outcome_counts">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.outcome_counts">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_count_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcomes" table="public.outcome_counts">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.outcomes" table="ctgov.outcome_counts">
 	<columns names="outcome_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_measurement_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.outcome_measurements">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.outcome_measurements">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_measurement_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcomes" table="public.outcome_measurements">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.outcomes" table="ctgov.outcome_measurements">
 	<columns names="outcome_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_analyses_outcome_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcomes" table="public.outcome_analyses">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.outcomes" table="ctgov.outcome_analyses">
 	<columns names="outcome_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_analysis_group_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.result_groups" table="public.outcome_analysis_groups">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.result_groups" table="ctgov.outcome_analysis_groups">
 	<columns names="result_group_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="outcome_analysis_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.outcome_analyses" table="public.outcome_analysis_groups">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.outcome_analyses" table="ctgov.outcome_analysis_groups">
 	<columns names="outcome_analysis_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <relationship name="rel_brief_summaries_studies" type="relfk"
-	 custom-color="#1333e6"
-	 src-table="public.brief_summaries"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
+	 custom-color="#000000"
+	 src-table="ctgov.brief_summaries"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="1.31329" y="-18.4"/>
+	</label>
+</relationship>
 
 <relationship name="rel_browse_conditions_studies" type="relfk"
-	 custom-color="#1b264e"
-	 src-table="public.browse_conditions"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_browse_interventions_studies" type="relfk"
-	 custom-color="#e86bd7"
-	 src-table="public.browse_interventions"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_calculated_values_studies" type="relfk"
-	 custom-color="#719e7c"
-	 src-table="public.calculated_values"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_central_contacts_studies" type="relfk"
-	 custom-color="#d75481"
-	 src-table="public.central_contacts"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_conditions_studies" type="relfk"
-	 custom-color="#991b2d"
-	 src-table="public.conditions"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_countries_studies" type="relfk"
-	 custom-color="#838f4b"
-	 src-table="public.countries"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_design_group_interventions_design_groups" type="relfk"
-	 custom-color="#a82931"
-	 src-table="public.design_group_interventions"
-	 dst-table="public.design_groups"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_design_group_interventions_interventions" type="relfk"
-	 custom-color="#1f5c8a"
-	 src-table="public.design_group_interventions"
-	 dst-table="public.interventions"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_design_groups_studies" type="relfk"
-	 custom-color="#d36091"
-	 src-table="public.design_groups"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_design_outcomes_studies" type="relfk"
-	 custom-color="#f41df3"
-	 src-table="public.design_outcomes"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_designs_studies" type="relfk"
-	 custom-color="#49810b"
-	 src-table="public.designs"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_detailed_descriptions_studies" type="relfk"
-	 custom-color="#29d369"
-	 src-table="public.detailed_descriptions"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_eligibilities_studies" type="relfk"
-	 custom-color="#adab0b"
-	 src-table="public.eligibilities"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_facilities_studies" type="relfk"
-	 custom-color="#ad307b"
-	 src-table="public.facilities"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_facility_contacts_facilities" type="relfk"
-	 custom-color="#da069e"
-	 src-table="public.facility_contacts"
-	 dst-table="public.facilities"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_facility_investigators_facilities" type="relfk"
-	 custom-color="#793b24"
-	 src-table="public.facility_investigators"
-	 dst-table="public.facilities"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_id_information_studies" type="relfk"
-	 custom-color="#94a6a0"
-	 src-table="public.id_information"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_intervention_other_names_interventions" type="relfk"
-	 custom-color="#6e0182"
-	 src-table="public.intervention_other_names"
-	 dst-table="public.interventions"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_interventions_studies" type="relfk"
-	 custom-color="#b669a8"
-	 src-table="public.interventions"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_keywords_studies" type="relfk"
-	 custom-color="#d97a43"
-	 src-table="public.keywords"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_links_studies" type="relfk"
-	 custom-color="#8fe70f"
-	 src-table="public.links"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_overall_officials_studies" type="relfk"
-	 custom-color="#04ceff"
-	 src-table="public.overall_officials"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_responsible_parties_studies" type="relfk"
-	 custom-color="#539257"
-	 src-table="public.responsible_parties"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_sponsors_studies" type="relfk"
-	 custom-color="#f54667"
-	 src-table="public.sponsors"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_study_references_studies" type="relfk"
-	 custom-color="#49153d"
-	 src-table="public.study_references"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_result_agreements_studies" type="relfk"
-	 custom-color="#c43cc5"
-	 src-table="public.result_agreements"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_result_contacts_studies" type="relfk"
-	 custom-color="#6ff428"
-	 src-table="public.result_contacts"
-	 dst-table="public.studies"
+	 custom-color="#010403"
+	 src-table="ctgov.browse_conditions"
+	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false">
 	<label ref-type="src-label">
 		<position x="0" y="0"/>
 	</label>
 </relationship>
 
-<relationship name="rel_result_groups_studies" type="relfk"
-	 custom-color="#425efd"
-	 src-table="public.result_groups"
-	 dst-table="public.studies"
+<relationship name="rel_browse_interventions_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.browse_interventions"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_calculated_values_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.calculated_values"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="33.3831" y="-20.4"/>
+	</label>
+</relationship>
+
+<relationship name="rel_central_contacts_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.central_contacts"
+	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
+<relationship name="rel_conditions_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.conditions"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_countries_studies" type="relfk"
+	 custom-color="#060506"
+	 src-table="ctgov.countries"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_group_interventions_design_groups" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.design_group_interventions"
+	 dst-table="ctgov.design_groups"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_group_interventions_interventions" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.design_group_interventions"
+	 dst-table="ctgov.interventions"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_groups_studies" type="relfk"
+	 custom-color="#3c4909"
+	 src-table="ctgov.design_groups"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_design_outcomes_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.design_outcomes"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_designs_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.designs"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="-27.2156" y="-39.4"/>
+	</label>
+</relationship>
+
+<relationship name="rel_detailed_descriptions_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.detailed_descriptions"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="-5.3063" y="-18.4"/>
+	</label>
+</relationship>
+
+<relationship name="rel_documents_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.documents"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_eligibilities_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.eligibilities"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_facilities_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.facilities"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_facility_contacts_facilities" type="relfk"
+	 custom-color="#050503"
+	 src-table="ctgov.facility_contacts"
+	 dst-table="ctgov.facilities"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_facility_investigators_facilities" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.facility_investigators"
+	 dst-table="ctgov.facilities"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_id_information_studies" type="relfk"
+	 custom-color="#000103"
+	 src-table="ctgov.id_information"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_other_names_interventions" type="relfk"
+	 custom-color="#040503"
+	 src-table="ctgov.intervention_other_names"
+	 dst-table="ctgov.interventions"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_interventions_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.interventions"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_keywords_studies" type="relfk"
+	 custom-color="#030202"
+	 src-table="ctgov.keywords"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_links_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.links"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_overall_officials_studies" type="relfk"
+	 custom-color="#010101"
+	 src-table="ctgov.overall_officials"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_responsible_parties_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.responsible_parties"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_sponsors_studies" type="relfk"
+	 custom-color="#070203"
+	 src-table="ctgov.sponsors"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_study_references_studies" type="relfk"
+	 custom-color="#000102"
+	 src-table="ctgov.study_references"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pending_results_studies" type="relfk"
+	 custom-color="#030102"
+	 src-table="ctgov.pending_results"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_result_agreements_studies" type="relfk"
+	 custom-color="#020203"
+	 src-table="ctgov.result_agreements"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_result_contacts_studies" type="relfk"
+	 custom-color="#401518"
+	 src-table="ctgov.result_contacts"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_result_groups_studies" type="relfk"
+	 custom-color="#000000"
+	 src-table="ctgov.result_groups"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
 <relationship name="rel_reported_events_result_groups" type="relfk"
-	 custom-color="#f2c9e5"
-	 src-table="public.reported_events"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.reported_events"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_participant_flows_studies" type="relfk"
-	 custom-color="#8b8822"
-	 src-table="public.participant_flows"
-	 dst-table="public.studies"
-	 src-required="false" dst-required="false"/>
+	 custom-color="#000000"
+	 src-table="ctgov.participant_flows"
+	 dst-table="ctgov.studies"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_drop_withdrawals_result_groups" type="relfk"
-	 custom-color="#8d5dd9"
-	 src-table="public.drop_withdrawals"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.drop_withdrawals"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_milestones_result_groups" type="relfk"
-	 custom-color="#d40950"
-	 src-table="public.milestones"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.milestones"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_baseline_measurements_result_groups" type="relfk"
-	 custom-color="#277d14"
-	 src-table="public.baseline_measurements"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.baseline_measurements"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_baseline_counts_result_groups" type="relfk"
-	 custom-color="#534a86"
-	 src-table="public.baseline_counts"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.baseline_counts"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_counts_result_groups" type="relfk"
-	 custom-color="#3b1296"
-	 src-table="public.outcome_counts"
-	 dst-table="public.result_groups"
+	 custom-color="#050702"
+	 src-table="ctgov.outcome_counts"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_counts_outcomes" type="relfk"
-	 custom-color="#8b1d45"
-	 src-table="public.outcome_counts"
-	 dst-table="public.outcomes"
+	 custom-color="#000000"
+	 src-table="ctgov.outcome_counts"
+	 dst-table="ctgov.outcomes"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_measurements_result_groups" type="relfk"
-	 custom-color="#489d7c"
-	 src-table="public.outcome_measurements"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.outcome_measurements"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_measurements_outcomes" type="relfk"
-	 custom-color="#78b709"
-	 src-table="public.outcome_measurements"
-	 dst-table="public.outcomes"
+	 custom-color="#020105"
+	 src-table="ctgov.outcome_measurements"
+	 dst-table="ctgov.outcomes"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_analyses_outcomes" type="relfk"
-	 custom-color="#e323f6"
-	 src-table="public.outcome_analyses"
-	 dst-table="public.outcomes"
+	 custom-color="#000000"
+	 src-table="ctgov.outcome_analyses"
+	 dst-table="ctgov.outcomes"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_analysis_groups_result_groups" type="relfk"
-	 custom-color="#721f06"
-	 src-table="public.outcome_analysis_groups"
-	 dst-table="public.result_groups"
+	 custom-color="#000000"
+	 src-table="ctgov.outcome_analysis_groups"
+	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_analysis_groups_outcome_analyses" type="relfk"
-	 custom-color="#8bf868"
-	 src-table="public.outcome_analysis_groups"
-	 dst-table="public.outcome_analyses"
+	 custom-color="#56c192"
+	 src-table="ctgov.outcome_analysis_groups"
+	 dst-table="ctgov.outcome_analyses"
 	 src-required="false" dst-required="false"/>
 
+<permission>
+	<object name="ctgov" type="schema"/>
+	<roles names="ctti"/>
+	<privileges create="true" usage="true"/>
+</permission>
 </dbmodel>

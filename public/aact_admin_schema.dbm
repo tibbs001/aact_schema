@@ -3,72 +3,67 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,1" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
 	 default-schema="public" default-owner="postgres">
-<role name="opentrials"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aact"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="tibbs001"
+<role name="ctti"
       superuser="true"
-      createdb="true"
-      replication="true"
-      createrole="true"
       inherit="true"
       login="true"
       encrypted="true"
-      password="********"
-      sql-disabled="true">
+      password="********">
 </role>
 
-<database name="aact2_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
-	<role name="tibbs001"/>
+<database name="aact_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
+	<role name="ctti"/>
 	<tablespace name="pg_default"/>
 </database>
 
 <schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<table name="schema_migrations">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="60" y="60"/>
-	<column name="version" not-null="true">
+<schema name="admin" rect-visible="true" fill-color="#a56273">
+	<role name="ctti"/>
+</schema>
+
+<sequence name="public_announcements_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="admin"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="public_announcements">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="60" y="59"/>
+	<column name="id" not-null="true" sequence="admin.public_announcements_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description">
 		<type name="character varying" length="0"/>
 	</column>
+	<column name="is_sticky">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="public_announcements_pkey" type="pk-constr" table="admin.public_announcements">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
 </table>
-
-<index name="unique_schema_migrations" table="public.schema_migrations"
-	 concurrent="false" unique="true" fast-update="false" buffering="false"
-	 index-type="btree" factor="90">
-		<idxelement use-sorting="false">
-			<column name="version"/>
-		</idxelement>
-</index>
 
 <sequence name="load_events_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="admin"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="load_events">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="300" y="60"/>
-	<column name="id" not-null="true" sequence="public.load_events_id_seq">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="280" y="59"/>
+	<column name="id" not-null="true" sequence="admin.load_events_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="event_type">
@@ -104,7 +99,45 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="load_events_pkey" type="pk-constr" table="public.load_events">
+	<constraint name="load_events_pkey" type="pk-constr" table="admin.load_events">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="user_events_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="admin"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="user_events">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="540" y="59"/>
+	<column name="id" not-null="true" sequence="admin.user_events_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="event_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="file_names">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="user_events_pkey" type="pk-constr" table="admin.user_events">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -113,15 +146,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="admin"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="sanity_checks">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="540" y="60"/>
-	<column name="id" not-null="true" sequence="public.sanity_checks_id_seq">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="780" y="59"/>
+	<column name="id" not-null="true" sequence="admin.sanity_checks_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="table_name">
@@ -145,32 +178,24 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="sanity_checks_pkey" type="pk-constr" table="public.sanity_checks">
+	<constraint name="sanity_checks_pkey" type="pk-constr" table="admin.sanity_checks">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
-
-<sequence name="statistics_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-</sequence>
 
 <sequence name="study_xml_records_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="admin"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="study_xml_records">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="60" y="120"/>
-	<column name="id" not-null="true" sequence="public.study_xml_records_id_seq">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="1020" y="59"/>
+	<column name="id" not-null="true" sequence="admin.study_xml_records_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -188,7 +213,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="study_xml_records_pkey" type="pk-constr" table="public.study_xml_records">
+	<constraint name="study_xml_records_pkey" type="pk-constr" table="admin.study_xml_records">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -197,15 +222,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="admin"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="data_definitions">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="80" y="260"/>
-	<column name="id" not-null="true" sequence="public.data_definitions_id_seq">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="60" y="259"/>
+	<column name="id" not-null="true" sequence="admin.data_definitions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="db_section">
@@ -241,7 +266,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="data_definitions_pkey" type="pk-constr" table="public.data_definitions">
+	<constraint name="data_definitions_pkey" type="pk-constr" table="admin.data_definitions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -250,15 +275,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="admin"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="use_cases">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="300" y="260"/>
-	<column name="id" not-null="true" sequence="public.use_cases_id_seq">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="300" y="259"/>
+	<column name="id" not-null="true" sequence="admin.use_cases_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="status">
@@ -297,7 +322,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="use_cases_pkey" type="pk-constr" table="public.use_cases">
+	<constraint name="use_cases_pkey" type="pk-constr" table="admin.use_cases">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -306,15 +331,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="public"/>
-	<role name="tibbs001"/>
+	<schema name="admin"/>
+	<role name="ctti"/>
 </sequence>
 
 <table name="use_case_attachments">
-	<schema name="public"/>
-	<role name="tibbs001"/>
-	<position x="580" y="260"/>
-	<column name="id" not-null="true" sequence="public.use_case_attachments_id_seq">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="580" y="259"/>
+	<column name="id" not-null="true" sequence="admin.use_case_attachments_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="use_case_id">
@@ -332,21 +357,216 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="use_case_attachments_pkey" type="pk-constr" table="public.use_case_attachments">
+	<constraint name="use_case_attachments_pkey" type="pk-constr" table="admin.use_case_attachments">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
+<sequence name="users_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="admin"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="users">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="820" y="259"/>
+	<column name="id" not-null="true" sequence="admin.users_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="email" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="encrypted_password" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="reset_password_token">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="reset_password_sent_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="remember_created_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="sign_in_count" not-null="true" default-value="0">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="current_sign_in_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="last_sign_in_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="current_sign_in_ip">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="last_sign_in_ip">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="first_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="last_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="username">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="confirmation_token">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="confirmed_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="confirmation_sent_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="users_pkey" type="pk-constr" table="admin.users">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="removed_users_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="admin"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="removed_users">
+	<schema name="admin"/>
+	<role name="ctti"/>
+	<position x="1100" y="259"/>
+	<column name="id" not-null="true" sequence="admin.removed_users_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="encrypted_password">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="reset_password_token">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="reset_password_sent_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="remember_created_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="sign_in_count">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="current_sign_in_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="last_sign_in_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="current_sign_in_ip">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="last_sign_in_ip">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="first_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="last_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="username">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="confirmation_token">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="confirmed_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="confirmation_sent_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="removed_users_pkey" type="pk-constr" table="admin.removed_users">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="index_users_on_username" table="admin.users"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="username"/>
+		</idxelement>
+</index>
+
+<index name="index_users_on_email" table="admin.users"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="email"/>
+		</idxelement>
+</index>
+
+<index name="index_users_on_reset_password_token" table="admin.users"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="reset_password_token"/>
+		</idxelement>
+</index>
+
+<index name="index_users_on_confirmation_token" table="admin.users"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="confirmation_token"/>
+		</idxelement>
+</index>
+
+<index name="index_removed_users_on_email" table="admin.removed_users"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="email"/>
+		</idxelement>
+</index>
+
+<index name="index_removed_users_on_username" table="admin.removed_users"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="username"/>
+		</idxelement>
+</index>
+
 <constraint name="use_case_attach_use_case_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.use_cases" table="public.use_case_attachments">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="admin.use_cases" table="admin.use_case_attachments">
 	<columns names="use_case_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <relationship name="rel_use_case_attachments_use_cases" type="relfk"
-	 custom-color="#010001"
-	 src-table="public.use_case_attachments"
-	 dst-table="public.use_cases"
+	 custom-color="#000000"
+	 src-table="admin.use_case_attachments"
+	 dst-table="admin.use_cases"
 	 src-required="false" dst-required="false"/>
 
+<permission>
+	<object name="admin" type="schema"/>
+	<roles names="ctti"/>
+	<privileges create="true" usage="true"/>
+</permission>
 </dbmodel>

@@ -21,351 +21,23 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<schema name="ctgov" rect-visible="true" fill-color="#6e76e2">
+<schema name="admin" rect-visible="true" fill-color="#a56273">
 	<role name="ctti"/>
 </schema>
-
-<sequence name="brief_summaries_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="browse_conditions_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="browse_interventions_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="calculated_values_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="central_contacts_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="conditions_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="countries_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="design_group_interventions_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="design_groups_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="design_outcomes_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="designs_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="detailed_descriptions_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="documents_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="eligibilities_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="facilities_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="facility_contacts_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="facility_investigators_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="id_information_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="intervention_other_names_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="interventions_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="keywords_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="links_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="overall_officials_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="responsible_parties_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="sponsors_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="study_references_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="pending_results_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="result_agreements_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="result_contacts_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="result_groups_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="reported_events_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="participant_flows_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="drop_withdrawals_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="milestones_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="baseline_measurements_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="baseline_counts_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="outcomes_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="outcome_counts_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="outcome_measurements_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="outcome_analyses_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
-
-<sequence name="outcome_analysis_groups_id_seq"
-	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
-	 cache="1" cycle="false">
-	<schema name="ctgov"/>
-	<role name="ctti"/>
-</sequence>
 
 <sequence name="public_announcements_id_seq"
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="public_announcements">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="680" y="60"/>
-	<column name="id" not-null="true" sequence="ctgov.public_announcements_id_seq">
+	<position x="60" y="59"/>
+	<column name="id" not-null="true" sequence="admin.public_announcements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="description">
@@ -374,7 +46,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="is_sticky">
 		<type name="boolean" length="0"/>
 	</column>
-	<constraint name="public_announcements_pkey" type="pk-constr" table="ctgov.public_announcements">
+	<constraint name="public_announcements_pkey" type="pk-constr" table="admin.public_announcements">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -383,15 +55,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="load_events">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="400" y="180"/>
-	<column name="id" not-null="true" sequence="ctgov.load_events_id_seq">
+	<position x="280" y="59"/>
+	<column name="id" not-null="true" sequence="admin.load_events_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="event_type">
@@ -427,7 +99,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="load_events_pkey" type="pk-constr" table="ctgov.load_events">
+	<constraint name="load_events_pkey" type="pk-constr" table="admin.load_events">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -436,15 +108,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="user_events">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="440" y="380"/>
-	<column name="id" not-null="true" sequence="ctgov.user_events_id_seq">
+	<position x="540" y="59"/>
+	<column name="id" not-null="true" sequence="admin.user_events_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="email">
@@ -465,7 +137,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="user_events_pkey" type="pk-constr" table="ctgov.user_events">
+	<constraint name="user_events_pkey" type="pk-constr" table="admin.user_events">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -474,15 +146,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="sanity_checks">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="140" y="240"/>
-	<column name="id" not-null="true" sequence="ctgov.sanity_checks_id_seq">
+	<position x="780" y="59"/>
+	<column name="id" not-null="true" sequence="admin.sanity_checks_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="table_name">
@@ -506,7 +178,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="sanity_checks_pkey" type="pk-constr" table="ctgov.sanity_checks">
+	<constraint name="sanity_checks_pkey" type="pk-constr" table="admin.sanity_checks">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -515,15 +187,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="study_xml_records">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="340" y="40"/>
-	<column name="id" not-null="true" sequence="ctgov.study_xml_records_id_seq">
+	<position x="1020" y="59"/>
+	<column name="id" not-null="true" sequence="admin.study_xml_records_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="nct_id">
@@ -541,7 +213,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="study_xml_records_pkey" type="pk-constr" table="ctgov.study_xml_records">
+	<constraint name="study_xml_records_pkey" type="pk-constr" table="admin.study_xml_records">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -550,15 +222,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="data_definitions">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="60" y="60"/>
-	<column name="id" not-null="true" sequence="ctgov.data_definitions_id_seq">
+	<position x="60" y="259"/>
+	<column name="id" not-null="true" sequence="admin.data_definitions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="db_section">
@@ -594,7 +266,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="data_definitions_pkey" type="pk-constr" table="ctgov.data_definitions">
+	<constraint name="data_definitions_pkey" type="pk-constr" table="admin.data_definitions">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -603,15 +275,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="use_cases">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="100" y="380"/>
-	<column name="id" not-null="true" sequence="ctgov.use_cases_id_seq">
+	<position x="300" y="259"/>
+	<column name="id" not-null="true" sequence="admin.use_cases_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="status">
@@ -650,7 +322,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="use_cases_pkey" type="pk-constr" table="ctgov.use_cases">
+	<constraint name="use_cases_pkey" type="pk-constr" table="admin.use_cases">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -659,15 +331,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="use_case_attachments">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="380" y="540"/>
-	<column name="id" not-null="true" sequence="ctgov.use_case_attachments_id_seq">
+	<position x="580" y="259"/>
+	<column name="id" not-null="true" sequence="admin.use_case_attachments_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="use_case_id">
@@ -685,7 +357,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="use_case_attachments_pkey" type="pk-constr" table="ctgov.use_case_attachments">
+	<constraint name="use_case_attachments_pkey" type="pk-constr" table="admin.use_case_attachments">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -694,15 +366,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="users">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="660" y="140"/>
-	<column name="id" not-null="true" sequence="ctgov.users_id_seq">
+	<position x="820" y="259"/>
+	<column name="id" not-null="true" sequence="admin.users_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="email" not-null="true" default-value="''::character varying">
@@ -753,7 +425,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="confirmation_sent_at">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="users_pkey" type="pk-constr" table="ctgov.users">
+	<constraint name="users_pkey" type="pk-constr" table="admin.users">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -762,15 +434,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 start="1" increment="1"
 	 min-value="1" max-value="9223372036854775807"
 	 cache="1" cycle="false">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
 </sequence>
 
 <table name="removed_users">
-	<schema name="ctgov"/>
+	<schema name="admin"/>
 	<role name="ctti"/>
-	<position x="680" y="380"/>
-	<column name="id" not-null="true" sequence="ctgov.removed_users_id_seq">
+	<position x="1100" y="259"/>
+	<column name="id" not-null="true" sequence="admin.removed_users_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="email">
@@ -827,12 +499,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="updated_at" not-null="true">
 		<type name="timestamp" length="0"/>
 	</column>
-	<constraint name="removed_users_pkey" type="pk-constr" table="ctgov.removed_users">
+	<constraint name="removed_users_pkey" type="pk-constr" table="admin.removed_users">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
-<index name="index_users_on_username" table="ctgov.users"
+<index name="index_users_on_username" table="admin.users"
 	 concurrent="false" unique="true" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -840,7 +512,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_users_on_email" table="ctgov.users"
+<index name="index_users_on_email" table="admin.users"
 	 concurrent="false" unique="true" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -848,7 +520,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_users_on_reset_password_token" table="ctgov.users"
+<index name="index_users_on_reset_password_token" table="admin.users"
 	 concurrent="false" unique="true" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -856,7 +528,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_users_on_confirmation_token" table="ctgov.users"
+<index name="index_users_on_confirmation_token" table="admin.users"
 	 concurrent="false" unique="true" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -864,7 +536,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_removed_users_on_email" table="ctgov.removed_users"
+<index name="index_removed_users_on_email" table="admin.removed_users"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -872,7 +544,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<index name="index_removed_users_on_username" table="ctgov.removed_users"
+<index name="index_removed_users_on_username" table="admin.removed_users"
 	 concurrent="false" unique="false" fast-update="false" buffering="false"
 	 index-type="btree" factor="90">
 		<idxelement use-sorting="false">
@@ -881,19 +553,19 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </index>
 
 <constraint name="use_case_attach_use_case_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.use_cases" table="ctgov.use_case_attachments">
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="admin.use_cases" table="admin.use_case_attachments">
 	<columns names="use_case_id" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
 <relationship name="rel_use_case_attachments_use_cases" type="relfk"
-	 custom-color="#2fb627"
-	 src-table="ctgov.use_case_attachments"
-	 dst-table="ctgov.use_cases"
+	 custom-color="#000000"
+	 src-table="admin.use_case_attachments"
+	 dst-table="admin.use_cases"
 	 src-required="false" dst-required="false"/>
 
 <permission>
-	<object name="ctgov" type="schema"/>
+	<object name="admin" type="schema"/>
 	<roles names="ctti"/>
 	<privileges create="true" usage="true"/>
 </permission>

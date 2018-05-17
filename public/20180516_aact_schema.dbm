@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="56,905" last-zoom="1"
 	 default-schema="public" default-owner="postgres">
 <role name="ctti"
       superuser="true"
@@ -21,7 +21,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<schema name="ctgov" rect-visible="true" fill-color="#6e76e2">
+<schema name="ctgov" rect-visible="true" fill-color="#abcee3">
 	<role name="ctti"/>
 </schema>
 
@@ -36,7 +36,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="brief_summaries">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="300" y="40"/>
+	<position x="440" y="160"/>
 	<column name="id" not-null="true" sequence="ctgov.brief_summaries_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -62,7 +62,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="browse_conditions">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="520" y="40"/>
+	<position x="780" y="60"/>
 	<column name="id" not-null="true" sequence="ctgov.browse_conditions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -91,7 +91,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="browse_interventions">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="800" y="60"/>
+	<position x="520" y="60"/>
 	<column name="id" not-null="true" sequence="ctgov.browse_interventions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -120,7 +120,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="calculated_values">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1040" y="60"/>
+	<position x="1140" y="59"/>
 	<column name="id" not-null="true" sequence="ctgov.calculated_values_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -185,7 +185,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="central_contacts">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1080" y="740"/>
+	<position x="1180" y="700"/>
 	<column name="id" not-null="true" sequence="ctgov.central_contacts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -220,7 +220,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="conditions">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="760" y="200"/>
+	<position x="900" y="140"/>
 	<column name="id" not-null="true" sequence="ctgov.conditions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -249,7 +249,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="countries">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1100" y="280"/>
+	<position x="1180" y="280"/>
 	<column name="id" not-null="true" sequence="ctgov.countries_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -278,7 +278,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="design_group_interventions">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="80" y="300"/>
+	<position x="160" y="279"/>
 	<column name="id" not-null="true" sequence="ctgov.design_group_interventions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -307,7 +307,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="design_groups">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="220" y="400"/>
+	<position x="300" y="380"/>
 	<column name="id" not-null="true" sequence="ctgov.design_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -339,7 +339,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="design_outcomes">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="120" y="660"/>
+	<position x="160" y="679"/>
 	<column name="id" not-null="true" sequence="ctgov.design_outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -377,7 +377,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="designs">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="120" y="100"/>
+	<position x="160" y="60"/>
 	<column name="id" not-null="true" sequence="ctgov.designs_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -436,7 +436,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="detailed_descriptions">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="540" y="180"/>
+	<position x="660" y="160"/>
 	<column name="id" not-null="true" sequence="ctgov.detailed_descriptions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -462,7 +462,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="documents">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="320" y="1180"/>
+	<position x="380" y="1160"/>
 	<column name="id" not-null="true" sequence="ctgov.documents_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -497,7 +497,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="eligibilities">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="120" y="780"/>
+	<position x="160" y="800"/>
 	<column name="id" not-null="true" sequence="ctgov.eligibilities_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -547,7 +547,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="facilities">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="940" y="520"/>
+	<position x="980" y="500"/>
 	<column name="id" not-null="true" sequence="ctgov.facilities_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -588,7 +588,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="facility_contacts">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1080" y="400"/>
+	<position x="1200" y="360"/>
 	<column name="id" not-null="true" sequence="ctgov.facility_contacts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -626,7 +626,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="facility_investigators">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1160" y="540"/>
+	<position x="1220" y="500"/>
 	<column name="id" not-null="true" sequence="ctgov.facility_investigators_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -658,7 +658,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="id_information">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="80" y="960"/>
+	<position x="160" y="980"/>
 	<column name="id" not-null="true" sequence="ctgov.id_information_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -687,7 +687,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="intervention_other_names">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="80" y="580"/>
+	<position x="140" y="600"/>
 	<column name="id" not-null="true" sequence="ctgov.intervention_other_names_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -716,7 +716,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="interventions">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="60" y="480"/>
+	<position x="140" y="480"/>
 	<column name="id" not-null="true" sequence="ctgov.interventions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -748,7 +748,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="keywords">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="840" y="320"/>
+	<position x="920" y="260"/>
 	<column name="id" not-null="true" sequence="ctgov.keywords_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -777,7 +777,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="links">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="40" y="1080"/>
+	<position x="140" y="1079"/>
 	<column name="id" not-null="true" sequence="ctgov.links_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -806,7 +806,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="overall_officials">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1140" y="860"/>
+	<position x="1180" y="800"/>
 	<column name="id" not-null="true" sequence="ctgov.overall_officials_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -838,7 +838,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="responsible_parties">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1080" y="960"/>
+	<position x="1140" y="900"/>
 	<column name="id" not-null="true" sequence="ctgov.responsible_parties_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -876,7 +876,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="sponsors">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1120" y="640"/>
+	<position x="1180" y="600"/>
 	<column name="id" not-null="true" sequence="ctgov.sponsors_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -900,7 +900,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="studies">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="480" y="300"/>
+	<position x="560" y="280"/>
 	<column name="nct_id">
 		<type name="character varying" length="0"/>
 	</column>
@@ -1097,7 +1097,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="study_references">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="40" y="1160"/>
+	<position x="140" y="1159"/>
 	<column name="id" not-null="true" sequence="ctgov.study_references_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1129,7 +1129,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pending_results">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="280" y="1060"/>
+	<position x="540" y="1080"/>
 	<column name="id" not-null="true" sequence="ctgov.pending_results_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1161,7 +1161,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="result_agreements">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="80" y="1260"/>
+	<position x="180" y="1259"/>
 	<column name="id" not-null="true" sequence="ctgov.result_agreements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1190,7 +1190,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="result_contacts">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1120" y="1080"/>
+	<position x="1160" y="1040"/>
 	<column name="id" not-null="true" sequence="ctgov.result_contacts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1225,7 +1225,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="result_groups">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="580" y="1040"/>
+	<position x="720" y="1180"/>
 	<column name="id" not-null="true" sequence="ctgov.result_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1260,7 +1260,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="reported_events">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="80" y="1340"/>
+	<position x="180" y="1339"/>
 	<column name="id" not-null="true" sequence="ctgov.reported_events_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1328,7 +1328,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="participant_flows">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="840" y="1080"/>
+	<position x="880" y="1040"/>
 	<column name="id" not-null="true" sequence="ctgov.participant_flows_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1357,7 +1357,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="drop_withdrawals">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="920" y="1300"/>
+	<position x="1120" y="1360"/>
 	<column name="id" not-null="true" sequence="ctgov.drop_withdrawals_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1395,7 +1395,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="milestones">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="880" y="1160"/>
+	<position x="1140" y="1220"/>
 	<column name="id" not-null="true" sequence="ctgov.milestones_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1436,7 +1436,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="baseline_measurements">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="160" y="1660"/>
+	<position x="200" y="1760"/>
 	<column name="id" not-null="true" sequence="ctgov.baseline_measurements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1507,7 +1507,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="baseline_counts">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="100" y="1540"/>
+	<position x="200" y="1579"/>
 	<column name="id" not-null="true" sequence="ctgov.baseline_counts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1545,7 +1545,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcomes">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="480" y="1680"/>
+	<position x="760" y="1880"/>
 	<column name="id" not-null="true" sequence="ctgov.outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1601,7 +1601,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_counts">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="520" y="1500"/>
+	<position x="520" y="1700"/>
 	<column name="id" not-null="true" sequence="ctgov.outcome_counts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1642,7 +1642,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_measurements">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="900" y="1820"/>
+	<position x="1120" y="1540"/>
 	<column name="id" not-null="true" sequence="ctgov.outcome_measurements_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1716,7 +1716,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_analyses">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="900" y="1500"/>
+	<position x="780" y="1540"/>
 	<column name="id" not-null="true" sequence="ctgov.outcome_analyses_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1799,7 +1799,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_analysis_groups">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="680" y="1400"/>
+	<position x="780" y="1420"/>
 	<column name="id" not-null="true" sequence="ctgov.outcome_analysis_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -2765,55 +2765,75 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </constraint>
 
 <relationship name="rel_brief_summaries_studies" type="relfk"
-	 custom-color="#7dcf7e"
+	 custom-color="#000000"
 	 src-table="ctgov.brief_summaries"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="1.31329" y="-18.4"/>
+	</label>
+</relationship>
 
 <relationship name="rel_browse_conditions_studies" type="relfk"
-	 custom-color="#4bd2a4"
+	 custom-color="#010403"
 	 src-table="ctgov.browse_conditions"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_browse_interventions_studies" type="relfk"
-	 custom-color="#bf447c"
+	 custom-color="#000000"
 	 src-table="ctgov.browse_interventions"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_calculated_values_studies" type="relfk"
-	 custom-color="#26dc5c"
+	 custom-color="#000000"
 	 src-table="ctgov.calculated_values"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="33.3831" y="-20.4"/>
+	</label>
+</relationship>
 
 <relationship name="rel_central_contacts_studies" type="relfk"
-	 custom-color="#f57d13"
+	 custom-color="#000000"
 	 src-table="ctgov.central_contacts"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_conditions_studies" type="relfk"
-	 custom-color="#a8dd32"
+	 custom-color="#000000"
 	 src-table="ctgov.conditions"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_countries_studies" type="relfk"
-	 custom-color="#a591b4"
+	 custom-color="#060506"
 	 src-table="ctgov.countries"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_design_group_interventions_design_groups" type="relfk"
-	 custom-color="#7d28c3"
+	 custom-color="#000000"
 	 src-table="ctgov.design_group_interventions"
 	 dst-table="ctgov.design_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_design_group_interventions_interventions" type="relfk"
-	 custom-color="#9fedec"
+	 custom-color="#000000"
 	 src-table="ctgov.design_group_interventions"
 	 dst-table="ctgov.interventions"
 	 src-required="false" dst-required="false"/>
@@ -2825,115 +2845,127 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_design_outcomes_studies" type="relfk"
-	 custom-color="#5e78c6"
+	 custom-color="#000000"
 	 src-table="ctgov.design_outcomes"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_designs_studies" type="relfk"
-	 custom-color="#c08582"
+	 custom-color="#000000"
 	 src-table="ctgov.designs"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="-27.2156" y="-39.4"/>
+	</label>
+</relationship>
 
 <relationship name="rel_detailed_descriptions_studies" type="relfk"
-	 custom-color="#549a29"
+	 custom-color="#000000"
 	 src-table="ctgov.detailed_descriptions"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="-5.3063" y="-18.4"/>
+	</label>
+</relationship>
 
 <relationship name="rel_documents_studies" type="relfk"
-	 custom-color="#48f4ef"
+	 custom-color="#000000"
 	 src-table="ctgov.documents"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_eligibilities_studies" type="relfk"
-	 custom-color="#8c21cf"
+	 custom-color="#000000"
 	 src-table="ctgov.eligibilities"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_facilities_studies" type="relfk"
-	 custom-color="#1c935b"
+	 custom-color="#000000"
 	 src-table="ctgov.facilities"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_facility_contacts_facilities" type="relfk"
-	 custom-color="#cdee91"
+	 custom-color="#050503"
 	 src-table="ctgov.facility_contacts"
 	 dst-table="ctgov.facilities"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_facility_investigators_facilities" type="relfk"
-	 custom-color="#9a31f1"
+	 custom-color="#000000"
 	 src-table="ctgov.facility_investigators"
 	 dst-table="ctgov.facilities"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_id_information_studies" type="relfk"
-	 custom-color="#0b42f6"
+	 custom-color="#000103"
 	 src-table="ctgov.id_information"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_intervention_other_names_interventions" type="relfk"
-	 custom-color="#96ce7d"
+	 custom-color="#040503"
 	 src-table="ctgov.intervention_other_names"
 	 dst-table="ctgov.interventions"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_interventions_studies" type="relfk"
-	 custom-color="#82a0ae"
+	 custom-color="#000000"
 	 src-table="ctgov.interventions"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_keywords_studies" type="relfk"
-	 custom-color="#dd8698"
+	 custom-color="#030202"
 	 src-table="ctgov.keywords"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_links_studies" type="relfk"
-	 custom-color="#b83614"
+	 custom-color="#000000"
 	 src-table="ctgov.links"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_overall_officials_studies" type="relfk"
-	 custom-color="#5f858c"
+	 custom-color="#010101"
 	 src-table="ctgov.overall_officials"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_responsible_parties_studies" type="relfk"
-	 custom-color="#e263c4"
+	 custom-color="#000000"
 	 src-table="ctgov.responsible_parties"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_sponsors_studies" type="relfk"
-	 custom-color="#ff4b56"
+	 custom-color="#070203"
 	 src-table="ctgov.sponsors"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_study_references_studies" type="relfk"
-	 custom-color="#35c7e9"
+	 custom-color="#000102"
 	 src-table="ctgov.study_references"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_pending_results_studies" type="relfk"
-	 custom-color="#a93d73"
+	 custom-color="#030102"
 	 src-table="ctgov.pending_results"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_result_agreements_studies" type="relfk"
-	 custom-color="#8186cb"
+	 custom-color="#020203"
 	 src-table="ctgov.result_agreements"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
@@ -2945,79 +2977,87 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_result_groups_studies" type="relfk"
-	 custom-color="#eed990"
+	 custom-color="#000000"
 	 src-table="ctgov.result_groups"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_reported_events_result_groups" type="relfk"
-	 custom-color="#ecdc42"
+	 custom-color="#000000"
 	 src-table="ctgov.reported_events"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_participant_flows_studies" type="relfk"
-	 custom-color="#0e8003"
+	 custom-color="#000000"
 	 src-table="ctgov.participant_flows"
 	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="rel_drop_withdrawals_result_groups" type="relfk"
-	 custom-color="#f5dbd8"
+	 custom-color="#000000"
 	 src-table="ctgov.drop_withdrawals"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_milestones_result_groups" type="relfk"
-	 custom-color="#a5eed3"
+	 custom-color="#000000"
 	 src-table="ctgov.milestones"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_baseline_measurements_result_groups" type="relfk"
-	 custom-color="#bbc1c0"
+	 custom-color="#000000"
 	 src-table="ctgov.baseline_measurements"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_baseline_counts_result_groups" type="relfk"
-	 custom-color="#efb760"
+	 custom-color="#000000"
 	 src-table="ctgov.baseline_counts"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_counts_result_groups" type="relfk"
-	 custom-color="#5c8f23"
+	 custom-color="#050702"
 	 src-table="ctgov.outcome_counts"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_counts_outcomes" type="relfk"
-	 custom-color="#680fe7"
+	 custom-color="#000000"
 	 src-table="ctgov.outcome_counts"
 	 dst-table="ctgov.outcomes"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_measurements_result_groups" type="relfk"
-	 custom-color="#f96f50"
+	 custom-color="#000000"
 	 src-table="ctgov.outcome_measurements"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_measurements_outcomes" type="relfk"
-	 custom-color="#4913cf"
+	 custom-color="#020105"
 	 src-table="ctgov.outcome_measurements"
 	 dst-table="ctgov.outcomes"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_analyses_outcomes" type="relfk"
-	 custom-color="#41a0b4"
+	 custom-color="#000000"
 	 src-table="ctgov.outcome_analyses"
 	 dst-table="ctgov.outcomes"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_outcome_analysis_groups_result_groups" type="relfk"
-	 custom-color="#52fb18"
+	 custom-color="#000000"
 	 src-table="ctgov.outcome_analysis_groups"
 	 dst-table="ctgov.result_groups"
 	 src-required="false" dst-required="false"/>
