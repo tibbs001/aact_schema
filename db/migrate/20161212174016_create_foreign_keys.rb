@@ -53,13 +53,13 @@ class CreateForeignKeys < ActiveRecord::Migration
     add_foreign_key "outcome_analysis_groups",    "outcome_analyses", column: 'outcome_analysis_id', primary_key: 'id', name: "outcome_analysis_group_id_fkey"
 
     execute <<-SQL
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA ctgov TO postgres;
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA ctgov TO ctti;
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA admin TO postgres;
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA admin TO ctti;
+      GRANT ALL ON ALL SEQUENCES IN SCHEMA ctgov   TO postgres;
+      GRANT ALL ON ALL SEQUENCES IN SCHEMA ctgov   TO ctti;
+      GRANT ALL ON ALL SEQUENCES IN SCHEMA support TO postgres;
+      GRANT ALL ON ALL SEQUENCES IN SCHEMA support TO ctti;
+      GRANT ALL ON ALL SEQUENCES IN SCHEMA admin   TO postgres;
+      GRANT ALL ON ALL SEQUENCES IN SCHEMA admin   TO ctti;
     SQL
-    # psql aact2_schema
-    # GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO postgres;
 
   end
 end
