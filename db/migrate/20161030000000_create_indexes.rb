@@ -1,4 +1,4 @@
-class CreateIndices < ActiveRecord::Migration
+class CreateIndexes < ActiveRecord::Migration
 
   #  DON'T FORGET.....
   # If you add an index, add it to indexes method in Util::Updater.  (or find a better way)
