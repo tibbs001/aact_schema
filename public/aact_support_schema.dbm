@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="ctti"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="aact_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
+	<role name="ctti"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="support" rect-visible="true" fill-color="#5418f3">
+	<role name="ctti"/>
+</schema>
+
+<table name="load_events">
+	<schema name="support"/>
+	<role name="ctti"/>
+	<position x="60" y="60"/>
+	<column name="id" not-null="true" default-value="nextval('load_events_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="event_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="problems">
+		<type name="text" length="0"/>
+	</column>
+	<column name="should_add">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="should_change">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="processed">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="load_time">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="completed_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="load_events_pkey" type="pk-constr" table="support.load_events">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sanity_checks">
+	<schema name="support"/>
+	<role name="ctti"/>
+	<position x="300" y="60"/>
+	<column name="id" not-null="true" default-value="nextval('sanity_checks_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="table_name">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="row_count">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description">
+		<type name="text" length="0"/>
+	</column>
+	<column name="most_current">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="sanity_checks_pkey" type="pk-constr" table="support.sanity_checks">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="study_xml_records">
+	<schema name="support"/>
+	<role name="ctti"/>
+	<position x="540" y="60"/>
+	<column name="id" not-null="true" default-value="nextval('study_xml_records_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="content">
+		<type name="xml" length="0"/>
+	</column>
+	<column name="created_study_at">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="study_xml_records_pkey" type="pk-constr" table="support.study_xml_records">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<permission>
+	<object name="support" type="schema"/>
+	<roles names="ctti"/>
+	<privileges create="true" usage="true"/>
+</permission>
+</dbmodel>

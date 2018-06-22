@@ -442,30 +442,6 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.boolean "is_sticky"
   end
 
-  create_table "removed_users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "encrypted_password"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count"
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "username"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "removed_users", ["email"], name: "index_removed_users_on_email", using: :btree
-  add_index "removed_users", ["username"], name: "index_removed_users_on_username", using: :btree
-
   create_table "reported_events", force: :cascade do |t|
     t.string  "nct_id"
     t.integer "result_group_id"
