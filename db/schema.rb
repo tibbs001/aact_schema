@@ -581,6 +581,10 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.boolean  "is_us_export"
     t.string   "biospec_retention"
     t.text     "biospec_description"
+    t.string   "ipd_info_type"
+    t.string   "ipd_time_frame"
+    t.string   "ipd_access_criteria"
+    t.string   "ipd_url"
     t.string   "plan_to_share_ipd"
     t.string   "plan_to_share_ipd_description"
     t.datetime "created_at",                          null: false
