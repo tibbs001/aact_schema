@@ -1138,7 +1138,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pending_results">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="540" y="1060"/>
+	<position x="540" y="1080"/>
 	<column name="id" not-null="true" sequence="ctgov.pending_results_id_seq">
 		<type name="integer" length="0"/>
 	</column>
