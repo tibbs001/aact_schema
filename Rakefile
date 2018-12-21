@@ -11,6 +11,10 @@ namespace :db do
   def set_search_path
     puts "Setting search path to ctgov..."
     con=ActiveRecord::Base.connection
+    begin
+      con.execute("create role read_only;")
+    rescue
+    end
     con.execute("create schema ctgov;")
     con.execute("create schema support;")
     con.execute("create schema admin;")
