@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="487,1236" last-zoom="1"
 	 default-schema="public" default-owner="postgres">
 <role name="ctti"
       superuser="true"
@@ -1566,7 +1566,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcomes">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="760" y="1880"/>
+	<position x="680" y="1840"/>
 	<column name="id" not-null="true" sequence="ctgov.outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1622,7 +1622,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_counts">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="520" y="1700"/>
+	<position x="540" y="1640"/>
 	<column name="id" not-null="true" sequence="ctgov.outcome_counts_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1737,7 +1737,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="outcome_analyses">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="780" y="1540"/>
+	<position x="800" y="1540"/>
 	<column name="id" not-null="true" sequence="ctgov.outcome_analyses_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -2520,6 +2520,48 @@ CAUTION: Do not modify this file unless you know what you are doing.
 			<column name="reference_type"/>
 		</idxelement>
 </index>
+
+<table name="mesh_terms">
+	<schema name="ctgov"/>
+	<role name="postgres"/>
+	<position x="1020" y="1820"/>
+	<column name="id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="qualifier">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="tree_number">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="description">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="mesh_term">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="downcase_mesh_term">
+		<type name="varchar" length="0"/>
+	</column>
+</table>
+
+<table name="mesh_headings">
+	<schema name="ctgov"/>
+	<role name="postgres"/>
+	<position x="1200" y="1840"/>
+	<column name="id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="qualifier">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="heading">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="subcategory">
+		<type name="varchar" length="0"/>
+	</column>
+</table>
 
 <constraint name="brief_summaries_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.brief_summaries">

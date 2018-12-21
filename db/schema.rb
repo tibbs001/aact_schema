@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212174016) do
+ActiveRecord::Schema.define(version: 20181108000122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -314,6 +314,27 @@ ActiveRecord::Schema.define(version: 20161212174016) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "mesh_headings", force: :cascade do |t|
+    t.string "qualifier"
+    t.string "heading"
+    t.string "subcategory"
+  end
+
+  add_index "mesh_headings", ["qualifier"], name: "index_mesh_headings_on_qualifier", using: :btree
+
+  create_table "mesh_terms", force: :cascade do |t|
+    t.string "qualifier"
+    t.string "tree_number"
+    t.string "description"
+    t.string "mesh_term"
+    t.string "downcase_mesh_term"
+  end
+
+  add_index "mesh_terms", ["description"], name: "index_mesh_terms_on_description", using: :btree
+  add_index "mesh_terms", ["downcase_mesh_term"], name: "index_mesh_terms_on_downcase_mesh_term", using: :btree
+  add_index "mesh_terms", ["mesh_term"], name: "index_mesh_terms_on_mesh_term", using: :btree
+  add_index "mesh_terms", ["qualifier"], name: "index_mesh_terms_on_qualifier", using: :btree
 
   create_table "milestones", force: :cascade do |t|
     t.string  "nct_id"
