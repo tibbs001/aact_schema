@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,2" last-zoom="1"
 	 default-schema="public" default-owner="postgres">
 <role name="ctti"
       superuser="true"
@@ -84,13 +84,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </role>
 
 <role name="DELEVY"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="Dijot"
       inherit="true"
       login="true"
       encrypted="true"
@@ -230,35 +223,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
       password="********">
 </role>
 
-<role name="aaavl2821"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
 <role name="aact"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aactmatch"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aactsl02"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aaijian"
       inherit="true"
       login="true"
       encrypted="true"
@@ -273,13 +238,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </role>
 
 <role name="aarsclinicaltrials"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="abadamchi"
       inherit="true"
       login="true"
       encrypted="true"
@@ -2061,20 +2019,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
       password="********">
 </role>
 
-<role name="aact4dmp"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aactuflccreports"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
 <role name="aarsclinicaltrialsaccount"
       inherit="true"
       login="true"
@@ -2764,42 +2708,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
       password="********">
 </role>
 
-<role name="aactchief"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aactuser"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aaj2146"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
 <role name="aanchal"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aanton"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="aaozcann"
       inherit="true"
       login="true"
       encrypted="true"
@@ -3328,13 +3237,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </role>
 
 <role name="dflicker"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="dirksonar"
       inherit="true"
       login="true"
       encrypted="true"
@@ -5443,14 +5345,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
       password="********">
 </role>
 
-<role name="read_only"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-	<roles names="cdek,&quot;AACTAZ&quot;,tibbs002,candy,ascaccia,asomers21,ferencit,fightcrchackathon,kehaoz,paulavm,tripaact,tpatole,vikram1,aact4dmp,vivekksingh,vmqral,tdoniaoctm,vertexinfobase,vja24,tperin,tiffanypang,turnerbe,tomara,thsteinmetz,teranalytics,tschneider7,teamkamops,tjaact,batkarj,jhenryhealthline2,&quot;BSC&quot;,&quot;Francine&quot;,&quot;BalajiS&quot;,g3systems,&quot;CTMA&quot;,&quot;HagenMohr&quot;,&quot;Birgittagleeson&quot;,&quot;Dina&quot;,&quot;Dijot&quot;,&quot;DELEVY&quot;,&quot;DDD&quot;,&quot;AlexAACT&quot;,&quot;Ashleyh613&quot;,&quot;CodeFreak&quot;,tibbs010,aanchal,aaozcann,&quot;MikeWhiteCO&quot;,aaijiangmail,aarsclinicaltrialsaccount,aglawega,afreshup,aaronbunda,abelcortinas,aactchief,aact,&quot;JamesECB&quot;,&quot;Nervelive&quot;,aactsl02,&quot;SLima&quot;,agough,&quot;Swatzell&quot;,&quot;PeteR&quot;,&quot;SyapseCloudEngineering&quot;,aaavl2821,&quot;MattGlick&quot;,&quot;Sebastian&quot;,&quot;SebastianS2&quot;,abadamchi,&quot;MichelleBotyrius&quot;,aaijian,aactmatch,&quot;TommyT&quot;,&quot;TFADMIN&quot;,&quot;RECHemy&quot;,admeyer1,acuesta,aactuflccreports,aeoh,agouldroivant,agarwalprasun,aanton,aaj2146,adamabamba,adrienctx,afigueras,aactuser,andrewliew86,akvallejos,anushp,arecanat,amadare,als,aldoisrael,anika,ajgrubb,aldricham,aparravera,amrutachavan,analavade,alexblumberg,angukrishnakumar,almuali,anil,andrewhaynes,akashhudge,akapoor,ahaller330,ahyeaton,annad,amar10,annguyen48,ajakhmol,anguszhang,ansownaj,amillan,akhanna,antonypham,antoinefattal,agresham,alc2813,allawayr,archita123,berenfus,carolinamvm,arheinlaender,brianhaas,bharatnayak,bryanfranca,bjonessocre,aureliuga,barrymccardel,bnguyen,arudert,astellasbi,bhupeshsharma,bbajaj,bblalock,caseyj889,&quot;brandonPhraze&quot;,bibliotecaria,carronmedia,btakasaki,arielariel,brianmoriarty,awblockerfcm,bemula55,brunobatina2,bartqb,blulego,calve002,bcmuser,bryanwong,awchubb,brandons,btriana,cancerfool,ashishsaini,ba2542,b13ernardo,cancereo,bdagostino,birdseye,bioneuro,clinicaltrialprospects1,cgaenzler,csyuming,cfw,coloradopotatobeetle,crunchuser,coco62,cdecker,colyoung,ckarnell,centretek,ciocls,charlesberdan,clinwiki,cgrilson,chetand,coryllewis,cfdauser,csepic,ccgproduction,chrisposs,cpa2002,constantino,cjpartners,centretekvhs,chagishranjan,crobinson,cstepien,clarexu,ctdsseb,charlottevn,coryandar,cl3720,cmayer39,croarkin,cjstudymaker,cmwestby,dlinde,digitalsorcery,dirksonar,cyeh027,cvirdeh,dflicker,davist09,darshana18,dmkvij1991,dnastacio,daza,definitive,dbuijs,deeplinkmedical,devin,dbounds,dataanddonuts,ddaniel,dkelly,davidleeljh,dgavlock,cxt,david,cucheratmi,dandavis,davidpenz,dahee1015,danwolinsky,danlind,d0c,dmcalli,curematch,datnoor,dbernasconi,dgregory,ctgov123,davidrubio,dnoren,datahaven,datameans,daam,framar,gkremer777,etcheverry,gordon,goeringscott,goldfire,eomsmhucnr,echuah,estudent8909,eborger,&quot;dssTeam&quot;,genectti,francodimasi,elix01,gilra,dtdiscovertherapies,francisco,ertuser,gmaact,eabruzzese,finklyn,gennarer,franktrialspark,dora570,felipefeijoo,giantquanta,foolishpoet,gilir,doober,fahads,gpigeau,farrmt,eddiepease,eturekmonkey,eclee25,gchi,ghoenig,emilylek,dranti,fnj1599,hausch11,greshamg,hsuo,imremihaly,houchw,ianjaffe,iqvia,jae2010,imif,hpatino4367,intrinsicbio,hcgiraldo,irisldn,icortes,henryh,itsarev,hervemn,hauckcl,itamar,informatician,guillaumelevrier,guidemark,istewart,imaurer,haruka0513,iromanov,imsnodelib,jacobbio,jackie87,ihealthcareanalyst,irriss,hasagice123,iantaylor,iainbennett,ircaact,gusbreit,hardayal,haekang,hlefty,henrygruff,jahmed,haoeric,jonduke,johnwang,jmstanley,jjyang,jeff,jingyu120,jeremy,jianminlong,jlmeinert,jdeepanshu07,jonmul,jdtopping,jeffrbrown,jeffbrownwct,joe,jheenan,jorgeguzman,jeremyh,joaquinv,jkushkuley,johausglobalcttidb,jeremykaplantempus,johnpaul,jgofman,jdezoete,jgyamauc,jonnistar,jbrbln,jdoole,jmg132,jdominguezenigma,jmmcca,jargall27,johannestrame,jeffreycl,jkanderson09,jasheetz2,jamesallain,jontano,kofi,krukliss,kechin,kmhoover004,jorgetiradotolosa,jsonbaik,ktaylor,jsussman,kspencer,kogulan,jsardina,jth82,jwyc,keoki,jproudfoot111,justinleesanofi,kerfors,kichacko,jrlacalle,kfollmer,karenchiswell,kmichelskim,julianmenningen,kfolsom,jsp,kajapalsovic,jslope06,kevinhillbsa,jphipps42,jpollard,jwmandema,ksh78068,juntangio1983,kovacsi3,kelvin,kmakihara,kent52443,jsuorsa,kaburke,kavyen,jwoltman,ksethna,lcoste,makisdi,lenith,mare,marco,lucky,markrau,kv12,kumar,lake,mairead,kvanuitert,lilijenny,langlakepartners,lek,lavis2018,leelikwe,malianze1009,leman,machinify,luhuishen,makrocare,manohar,laveryj,lifesciencechubb,lbolger,larrydavis,lrelton,lewis,lisajin333,logoscapital,lf2608,lek2018,lavisctgov,mgowtham24,mfurg,mknoke,materda,mbontrager,mjwojtowicz,michaelpaulus,maustin,mhendlich,matthew12o,mkalot,martsand,mismacol,mfernandopulle,mfuja01,markrutter1110,melek,mgarcia,mnissila,matthewrishwain,mflemi,mochanm,mberezina,mis161,mjterran,mereja2018,milnav1,mgoyal,markroivant,misneach,mikecoles,mmitchell,matkrull,mlang,maximyurchuk,munzer,nimhcms,nandiniaact,nazarov,nitin2312,mrdivine,mwalter,nayanr01,mrozenba,nianha,ngiangr,mpooleery,nbuaactloginaccount,newsrxcom,nicholsn,nerveaact,nessakk,nidhal,mrcardiovascular,mugodev,nagasank,newlbs,nevergiveup,mrocholl,mrost,nmatsunaga,mustafaascha,newman73,njg001,moulinarayanan,moqri,nelsonshields,moyamanda,natecollins,mschumacher74,&quot;nothing&quot;,piresn,pbabu,ntsuneda,pharmcube,petrotrialscope,nuaxia,pragathikv,ostapd,paraspuri,olegursu,oncoassist,osmans,poregan,nybcg,omidreformer,pabboud,nparke,portfoliopfe,patelkv2,ory,paul,pras,patwoo,ploerch,pmadan13,osmosisch,perryn,petermilovcik,ochwwinnovationlab,novartisaact,paulheery,pfarah,oleglomakin,nobuhiro,osakauniversitybiostatistics,ohad,pfizergpd,ole,robe,qinyuan,rahulsingh2507,prontack,raigordejuela,proj,reddys06,qadam,rbierman,ravinittala,qlikhealthcare,ravindra,relwell,rebekahgriesenauer,raghav,repprd,prtos,preetrawat,ptcttiuser02,robertsonm14,rkatriel,research,rbrtdambrosio,rlove,raon4,rlapace,quincyadam,rdelemos,ric,rbueker,rd180,reisle,rawthers,rmadams,rajeshlal07,ryoo2000,schen,senochson,saadkhanc,samuelk,sduch009,sdas41395,roshandev,scwong,schnebeni,schuleraxtria,searchaact,samir,sanasyn,sebastiansoid,rvsidhu035,scottashepard,rubychen,saxenad,rrandhawa,ryan3741,sarahvititoe23,sckddi,rorsethj,rohanci,sebastiank,s3716706,sebbelinho,sainiamaan,seharpe,senjayan,rranjan,ronth,sanchdan,souroutzidisy,sirty,shyamsrinivas,smithba,shailer,srinikar,simonatdrg,srosenfeld,shanot,spbaker1974,slin,sheepstop,solsson,smcaul1,splanche,sergeyfeldman,shash95,simonmotif,shouyu,sparkssm,sphase,spilcer,shwong,sigrec,spektron,silja,sfinder,sharmabh,sergeypak,ssimo,sldubois,shashidhar,tjolls12,takacsistvanmarton,steve,studyconnectert,stevetouw,talvikolmio,tarjan,sternlicht,tkanigan,sun,thomsve,tera,stnpki321,stump832,sxk206,tanmaykhole208,susanmarlin,suri,staka1981,thassapong,synergus,sstarcher,stomioka,theblacksack,test,subhashjaini,sudswy,technoglyf,tflana,thegodland,symbiant2k,tdarling,tableau,swells,vidumank,wesselmd,vidushi,urodts,warrierr,vikram,vini007,vkelk,vaughanda,trialsai,tomlaheyh,willmark59,voltel,webteam,wmankowski,turdangarin,tos8,watkind,wikokabiling,ufkstr,tomlue,torgyn,witjest,u36073,vlucrezia10,vdonovan,vik2304,vrhoveckl1,tomwalls,vpandit,tomsi,tzh476,ysemashko,wyu1965,wrightel,yarongolan,xzmeng,yiwen1995,zeshan,zhui126,zhangy,zl2619,&quot;wyangAXA&quot;,zahiralisurani,woo,zsaact,zashkon,yamyamin,wolcotthn,wronap,yashaswiniyellappa,youngjaewoo,ysdefaultuser,wrc,yvettek,wolcotthn1,zhukehao" role-type="member" />
-</role>
-
 <database name="aact_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
 	<role name="ctti"/>
 	<tablespace name="pg_default"/>
@@ -5459,7 +5353,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<schema name="proj_results_reporting" rect-visible="true" fill-color="#508082">
+<schema name="proj_results_reporting" rect-visible="true" fill-color="#0f79c0">
 	<role name="ctti"/>
 </schema>
 
@@ -5639,7 +5533,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<schema name="proj_tag_nephrology" rect-visible="true" fill-color="#054a2e">
+<schema name="proj_tag_nephrology" rect-visible="true" fill-color="#107ebc">
 	<role name="ctti"/>
 </schema>
 
@@ -5654,7 +5548,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="tagged_terms">
 	<schema name="proj_tag_nephrology"/>
 	<role name="ctti"/>
-	<position x="380" y="60"/>
+	<position x="380" y="179"/>
 	<column name="id" not-null="true" sequence="proj_tag_nephrology.tagged_terms_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -5680,7 +5574,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="analyzed_studies">
 	<schema name="proj_tag_nephrology"/>
 	<role name="ctti"/>
-	<position x="600" y="60"/>
+	<position x="600" y="179"/>
 	<column name="id" not-null="true" sequence="proj_tag_nephrology.analyzed_studies_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -5698,7 +5592,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<schema name="proj_cdek_standard_orgs" rect-visible="true" fill-color="#22cd59">
+<schema name="proj_cdek_standard_orgs" rect-visible="true" fill-color="#1178bd">
 	<role name="ctti"/>
 </schema>
 
@@ -5713,7 +5607,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cdek_organizations">
 	<schema name="proj_cdek_standard_orgs"/>
 	<role name="ctti"/>
-	<position x="380" y="199"/>
+	<position x="380" y="339"/>
 	<column name="id" not-null="true" sequence="proj_cdek_standard_orgs.cdek_organizations_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -5739,7 +5633,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cdek_synonyms">
 	<schema name="proj_cdek_standard_orgs"/>
 	<role name="ctti"/>
-	<position x="640" y="199"/>
+	<position x="640" y="339"/>
 	<column name="id" not-null="true" sequence="proj_cdek_standard_orgs.cdek_synonyms_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -5766,28 +5660,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<privileges create="true" usage="true"/>
 </permission>
 <permission>
-	<object name="proj_results_reporting" type="schema"/>
-	<roles names="read_only"/>
-	<privileges usage="true"/>
-</permission>
-<permission>
 	<object name="proj_tag_nephrology" type="schema"/>
 	<roles names="ctti"/>
 	<privileges create="true" usage="true"/>
 </permission>
 <permission>
-	<object name="proj_tag_nephrology" type="schema"/>
-	<roles names="read_only"/>
-	<privileges usage="true"/>
-</permission>
-<permission>
 	<object name="proj_cdek_standard_orgs" type="schema"/>
 	<roles names="ctti"/>
 	<privileges create="true" usage="true"/>
-</permission>
-<permission>
-	<object name="proj_cdek_standard_orgs" type="schema"/>
-	<roles names="read_only"/>
-	<privileges usage="true"/>
 </permission>
 </dbmodel>
