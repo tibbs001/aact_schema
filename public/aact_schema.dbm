@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="30,0" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
 	 default-owner="postgres">
 <role name="ctti"
       superuser="true"
@@ -471,7 +471,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="documents">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="520" y="1140"/>
+	<position x="540" y="1180"/>
 	<column name="id" not-null="true" sequence="ctgov.documents_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -885,7 +885,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="sponsors">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="1140" y="580"/>
+	<position x="1120" y="580"/>
 	<column name="id" not-null="true" sequence="ctgov.sponsors_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1150,7 +1150,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pending_results">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="640" y="1040"/>
+	<position x="660" y="1080"/>
 	<column name="id" not-null="true" sequence="ctgov.pending_results_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1246,7 +1246,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="result_groups">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="840" y="1140"/>
+	<position x="840" y="1200"/>
 	<column name="id" not-null="true" sequence="ctgov.result_groups_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1349,7 +1349,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="participant_flows">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="860" y="960"/>
+	<position x="860" y="980"/>
 	<column name="id" not-null="true" sequence="ctgov.participant_flows_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -2604,6 +2604,68 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
+<relationship name="rel_brief_summaries_studies" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 src-table="ctgov.brief_summaries"
+	 dst-table="ctgov.studies"
+	 src-required="true" dst-required="false">
+	<label ref-type="src-label">
+		<position x="4.73556" y="1.6"/>
+	</label>
+	<label ref-type="dst-label">
+		<position x="17.8021" y="38.8"/>
+	</label>
+</relationship>
+
+<relationship name="rel_calculated_values_studies" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 src-table="ctgov.calculated_values"
+	 dst-table="ctgov.studies"
+	 src-required="true" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="-21.7031" y="22.7479"/>
+	</label>
+</relationship>
+
+<relationship name="rel_designs_studies" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 src-table="ctgov.designs"
+	 dst-table="ctgov.studies"
+	 src-required="true" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="63.8" y="25.6782"/>
+	</label>
+</relationship>
+
+<relationship name="rel_detailed_descriptions_studies" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 src-table="ctgov.detailed_descriptions"
+	 dst-table="ctgov.studies"
+	 src-required="true" dst-required="false">
+	<label ref-type="src-label">
+		<position x="0.615407" y="1.6"/>
+	</label>
+	<label ref-type="dst-label">
+		<position x="4.95275" y="78.8"/>
+	</label>
+</relationship>
+
+<relationship name="rel_eligibilities_studies" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 src-table="ctgov.eligibilities"
+	 dst-table="ctgov.studies"
+	 src-required="true" dst-required="false"/>
+
 <constraint name="brief_summaries_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ctgov.studies" table="ctgov.brief_summaries">
 	<columns names="nct_id" ref-type="src-columns"/>
@@ -2874,15 +2936,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="nct_id" ref-type="dst-columns"/>
 </constraint>
 
-<relationship name="rel_brief_summaries_studies" type="relfk"
-	 src-table="ctgov.brief_summaries"
-	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false">
-	<label ref-type="src-label">
-		<position x="4.73556" y="1.6"/>
-	</label>
-</relationship>
-
 <relationship name="rel_browse_conditions_studies" type="relfk"
 	 src-table="ctgov.browse_conditions"
 	 dst-table="ctgov.studies"
@@ -2890,11 +2943,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <relationship name="rel_browse_interventions_studies" type="relfk"
 	 src-table="ctgov.browse_interventions"
-	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_calculated_values_studies" type="relfk"
-	 src-table="ctgov.calculated_values"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
@@ -2933,23 +2981,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_designs_studies" type="relfk"
-	 src-table="ctgov.designs"
-	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_detailed_descriptions_studies" type="relfk"
-	 src-table="ctgov.detailed_descriptions"
-	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
-
 <relationship name="rel_documents_studies" type="relfk"
 	 src-table="ctgov.documents"
-	 dst-table="ctgov.studies"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_eligibilities_studies" type="relfk"
-	 src-table="ctgov.eligibilities"
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
@@ -3103,9 +3136,4 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="ctgov.studies"
 	 src-required="false" dst-required="false"/>
 
-<permission>
-	<object name="ctgov" type="schema"/>
-	<roles names="ctti"/>
-	<privileges create="true" usage="true"/>
-</permission>
 </dbmodel>
