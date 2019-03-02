@@ -3,9 +3,17 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="30,0" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.0-alpha" last-position="0,0" last-zoom="1"
 	 default-owner="postgres">
 <role name="ctti"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="ctti_cp"
       superuser="true"
       inherit="true"
       login="true"

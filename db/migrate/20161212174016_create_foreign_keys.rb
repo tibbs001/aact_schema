@@ -13,6 +13,7 @@ class CreateForeignKeys < ActiveRecord::Migration
     add_foreign_key "designs",                    "studies", column: "nct_id", primary_key: "nct_id", name: "designs_nct_id_fkey"
     add_foreign_key "detailed_descriptions",      "studies", column: "nct_id", primary_key: "nct_id", name: "detailed_descriptions_nct_id_fkey"
     add_foreign_key "documents",                  "studies", column: "nct_id", primary_key: "nct_id", name: "documents_nct_id_fkey"
+    add_foreign_key "provided_documents",         "studies", column: "nct_id", primary_key: "nct_id", name: "provided_documents_nct_id_fkey"
     add_foreign_key "eligibilities",              "studies", column: "nct_id", primary_key: "nct_id", name: "eligibilities_nct_id_fkey"
     add_foreign_key "facilities",                 "studies", column: "nct_id", primary_key: "nct_id", name: "facilities_nct_id_fkey"
     add_foreign_key "id_information",             "studies", column: "nct_id", primary_key: "nct_id", name: "id_study_fkey"
@@ -54,11 +55,8 @@ class CreateForeignKeys < ActiveRecord::Migration
 
     execute <<-SQL
       GRANT ALL ON ALL SEQUENCES IN SCHEMA ctgov   TO postgres;
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA ctgov   TO ctti;
       GRANT ALL ON ALL SEQUENCES IN SCHEMA support TO postgres;
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA support TO ctti;
       GRANT ALL ON ALL SEQUENCES IN SCHEMA admin   TO postgres;
-      GRANT ALL ON ALL SEQUENCES IN SCHEMA admin   TO ctti;
     SQL
 
   end

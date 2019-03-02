@@ -458,6 +458,16 @@ ActiveRecord::Schema.define(version: 20181108000122) do
     t.date   "event_date"
   end
 
+  create_table "provided_documents", force: :cascade do |t|
+    t.string  "nct_id"
+    t.string  "document_type"
+    t.boolean "has_protocol"
+    t.boolean "has_icf"
+    t.boolean "has_sap"
+    t.date    "document_date"
+    t.string  "url"
+  end
+
   create_table "public_announcements", force: :cascade do |t|
     t.string  "description"
     t.boolean "is_sticky"
@@ -739,6 +749,7 @@ ActiveRecord::Schema.define(version: 20181108000122) do
   add_foreign_key "overall_officials", "studies", column: "nct_id", primary_key: "nct_id", name: "overall_officials_nct_id_fkey"
   add_foreign_key "participant_flows", "studies", column: "nct_id", primary_key: "nct_id", name: "part_flow_id_fkey"
   add_foreign_key "pending_results", "studies", column: "nct_id", primary_key: "nct_id", name: "pending_results_id_fkey"
+  add_foreign_key "provided_documents", "studies", column: "nct_id", primary_key: "nct_id", name: "provided_documents_nct_id_fkey"
   add_foreign_key "reported_events", "result_groups", name: "reported_events_result_group_id_fkey"
   add_foreign_key "responsible_parties", "studies", column: "nct_id", primary_key: "nct_id", name: "responsible_parties_nct_id_fkey"
   add_foreign_key "result_agreements", "studies", column: "nct_id", primary_key: "nct_id", name: "result_agreements_nct_id_fkey"

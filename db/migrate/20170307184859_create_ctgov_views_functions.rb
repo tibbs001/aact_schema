@@ -27,13 +27,6 @@ class CreateCtgovViewsFunctions < ActiveRecord::Migration
         FROM id_information
       GROUP BY nct_id;
 
-      GRANT SELECT on all_sponsors to aact;
-      GRANT SELECT on all_conditions to aact;
-      GRANT SELECT on all_interventions to aact;
-      GRANT SELECT on all_design_outcomes to aact;
-      GRANT SELECT on all_id_information to aact;
-
-      --
 -- Name: ids_for(character varying); Type: FUNCTION; Schema: public; Owner: -
 --
 
