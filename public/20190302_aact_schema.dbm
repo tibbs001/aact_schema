@@ -13,14 +13,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
       password="********">
 </role>
 
-<role name="ctti_cp"
-      superuser="true"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
 <database name="aact_schema" encoding="UTF8" lc-collate="en_US" lc-ctype="en_US">
 	<role name="ctti"/>
 	<tablespace name="pg_default"/>
