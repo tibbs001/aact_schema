@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2-alpha1" last-position="0,0" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres">
+<role name="ctti"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="csosa"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="proj"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="aact" encoding="UTF8" connlimit="200" lc-collate="en_US.UTF-8" lc-ctype="en_US.UTF-8" is-template="false" allow-conns="true">
+	<role name="ctti"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="mesh_archive" layer="0" rect-visible="true" fill-color="#464749">
+	<role name="ctti"/>
+</schema>
+
+<sequence name="y2010_mesh_terms_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="y2010_mesh_terms" layer="0" collapse-mode="2" max-obj-count="7">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+	<position x="50" y="50"/>
+	<column name="id" not-null="true" sequence="mesh_archive.y2010_mesh_terms_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="qualifier">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="tree_number">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="downcase_mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="y2010_mesh_terms_pkey" type="pk-constr" table="mesh_archive.y2010_mesh_terms">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="y2016_mesh_headings_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="y2016_mesh_headings" layer="0" collapse-mode="2" max-obj-count="4">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+	<position x="501.4" y="50"/>
+	<column name="id" not-null="true" sequence="mesh_archive.y2016_mesh_headings_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="qualifier">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="heading">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="subcategory">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="y2016_mesh_headings_pkey" type="pk-constr" table="mesh_archive.y2016_mesh_headings">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="y2016_mesh_terms_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="y2016_mesh_terms" layer="0" collapse-mode="2" max-obj-count="7">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+	<position x="908.05" y="50"/>
+	<column name="id" not-null="true" sequence="mesh_archive.y2016_mesh_terms_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="qualifier">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="tree_number">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="downcase_mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="y2016_mesh_terms_pkey" type="pk-constr" table="mesh_archive.y2016_mesh_terms">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="y2018_mesh_terms_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="y2018_mesh_terms" layer="0" collapse-mode="2" max-obj-count="7">
+	<schema name="mesh_archive"/>
+	<role name="ctti"/>
+	<position x="1359.45" y="50"/>
+	<column name="id" not-null="true" sequence="mesh_archive.y2018_mesh_terms_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="qualifier">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="tree_number">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="downcase_mesh_term">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="y2018_mesh_terms_pkey" type="pk-constr" table="mesh_archive.y2018_mesh_terms">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="index_mesh_archive.y2016_mesh_headings_on_qualifier" table="mesh_archive.y2016_mesh_headings"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qualifier"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2010_mesh_terms_on_description" table="mesh_archive.y2010_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="description"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2010_mesh_terms_on_downcase_mesh_term" table="mesh_archive.y2010_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2010_mesh_terms_on_mesh_term" table="mesh_archive.y2010_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2010_mesh_terms_on_qualifier" table="mesh_archive.y2010_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qualifier"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2016_mesh_terms_on_description" table="mesh_archive.y2016_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="description"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2016_mesh_terms_on_downcase_mesh_term" table="mesh_archive.y2016_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2016_mesh_terms_on_mesh_term" table="mesh_archive.y2016_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2016_mesh_terms_on_qualifier" table="mesh_archive.y2016_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qualifier"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2018_mesh_terms_on_description" table="mesh_archive.y2018_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="description"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2018_mesh_terms_on_downcase_mesh_term" table="mesh_archive.y2018_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="downcase_mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2018_mesh_terms_on_mesh_term" table="mesh_archive.y2018_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="mesh_term"/>
+		</idxelement>
+</index>
+
+<index name="index_mesh_archive.y2018_mesh_terms_on_qualifier" table="mesh_archive.y2018_mesh_terms"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qualifier"/>
+		</idxelement>
+</index>
+
+<permission>
+	<object name="aact" type="database"/>
+	<privileges connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="ctti"/>
+	<privileges create="true" connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="csosa"/>
+	<privileges connect="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="proj"/>
+	<privileges create="true" connect="true"/>
+</permission>
+</dbmodel>

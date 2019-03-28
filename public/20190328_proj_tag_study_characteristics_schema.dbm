@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2-alpha1" last-position="0,0" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres">
+<role name="ctti"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="csosa"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="proj"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="aact" encoding="UTF8" connlimit="200" lc-collate="en_US.UTF-8" lc-ctype="en_US.UTF-8" is-template="false" allow-conns="true">
+	<role name="ctti"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="proj_tag_study_characteristics" layer="0" rect-visible="true" fill-color="#464749">
+	<role name="ctti"/>
+</schema>
+
+<sequence name="tagged_terms_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+</sequence>
+
+<sequence name="cardiovascular_studies_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="cardiovascular_studies" layer="0" collapse-mode="2" max-obj-count="4">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+	<position x="320.872" y="45"/>
+	<column name="id" not-null="true" sequence="proj_tag_study_characteristics.cardiovascular_studies_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="lead_sponsor">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="cardiovascular_studies_pkey" type="pk-constr" table="proj_tag_study_characteristics.cardiovascular_studies">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="mental_health_studies_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="mental_health_studies" layer="0" collapse-mode="2" max-obj-count="4">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+	<position x="602.525" y="47"/>
+	<column name="id" not-null="true" sequence="proj_tag_study_characteristics.mental_health_studies_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="lead_sponsor">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="mental_health_studies_pkey" type="pk-constr" table="proj_tag_study_characteristics.mental_health_studies">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="oncology_studies_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="oncology_studies" layer="0" collapse-mode="2" max-obj-count="4">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+	<position x="888.006" y="50"/>
+	<column name="id" not-null="true" sequence="proj_tag_study_characteristics.oncology_studies_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="lead_sponsor">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="oncology_studies_pkey" type="pk-constr" table="proj_tag_study_characteristics.oncology_studies">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tagged_terms" layer="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="4">
+	<schema name="proj_tag_study_characteristics"/>
+	<role name="ctti"/>
+	<position x="96" y="56"/>
+	<column name="id" not-null="true" sequence="proj_tag_study_characteristics.tagged_terms_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="tag">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="term">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="term_type">
+		<type name="character varying" length="0"/>
+	</column>
+</table>
+
+<permission>
+	<object name="aact" type="database"/>
+	<privileges connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="ctti"/>
+	<privileges create="true" connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="csosa"/>
+	<privileges connect="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="proj"/>
+	<privileges create="true" connect="true"/>
+</permission>
+</dbmodel>

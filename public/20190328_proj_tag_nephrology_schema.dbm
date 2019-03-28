@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2-alpha1" last-position="0,0" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres">
+<role name="ctti"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="csosa"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="proj"
+      superuser="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="aact" encoding="UTF8" connlimit="200" lc-collate="en_US.UTF-8" lc-ctype="en_US.UTF-8" is-template="false" allow-conns="true">
+	<role name="ctti"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="proj_tag_nephrology" layer="0" rect-visible="true" fill-color="#464749">
+	<role name="ctti"/>
+</schema>
+
+<function name="create_views"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="STRICT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="proj_tag_nephrology"/>
+	<role name="ctti"/>
+	<language name="plpgsql" sql-disabled="true"/>
+	<return-type>
+	<type name="void" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+        BEGIN
+          EXECUTE 'CREATE OR REPLACE VIEW proj_tag_nephrology.tagged_studies AS ' ||
+            ' select distinct s.nct_id, s.start_date, s.start_date_type, s.primary_completion_date, s.primary_completion_date_type, ' ||
+            '   s.acronym, s.brief_title, s.official_title, s.overall_status, s.phase, ' ||
+            '   s.source, s.number_of_arms, s.enrollment, ' ||
+            '   regexp_replace(s.baseline_population, E''[\n\r\u2028]+'', '' '', ''g'' ) as baseline_population,  ' ||
+            '   regexp_replace(s.why_stopped, E''[\n\r\u2028]+'', '' '', ''g'' ) as why_stopped,  ' ||
+            '   regexp_replace(s.limitations_and_caveats, E''[\n\r\u2028]+'', '' '', ''g'' ) as limitations_and_caveats,  ' ||
+            '   cv.number_of_facilities, cv.actual_duration, ' ||
+            '   cv.were_results_reported, cv.has_us_facility, cv.has_single_facility, ' ||
+            '   cv.months_to_report_results , cv.minimum_age_num, cv.minimum_age_unit, ' ||
+            '   cv.maximum_age_num, cv.maximum_age_unit, ' ||
+            '   d.allocation, d.intervention_model, d.primary_purpose, d.time_perspective, d.masking  ' ||
+            '   from ctgov.studies s, ctgov.calculated_values cv, ctgov.designs d ' ||
+            '   where s.nct_id = cv.nct_id ' ||
+            '     and s.nct_id = d.nct_id  ' ||
+            '     and s.nct_id in (        ' ||
+              ' select distinct s.nct_id   ' ||
+               ' from ctgov.studies s, ctgov.browse_conditions bc ' ||
+               ' where s.study_type=''Interventional''  ' ||
+                 ' and s.study_first_posted_date >= ''2007-10-01'' ' ||
+                 ' and s.nct_id = bc.nct_id ' ||
+                 ' and bc.downcase_mesh_term IN (select term from proj_tag_nephrology.tagged_terms) '
+              ' union ' ||
+              '   select distinct s.nct_id ' ||
+              '   from ctgov.studies s, ctgov.keywords k ' ||
+              '   where s.study_type=''Interventional'' ' ||
+              '   and s.study_first_posted_date >= ''2007-10-01'' ' ||
+              '   and s.nct_id = k.nct_id ' ||
+              '  and k.downcase_name IN (select term from proj_tag_nephrology.tagged_terms)  ' ||
+              ' union  ' ||
+              '   select distinct s.nct_id  ' ||
+              '   from studies s, conditions c  ' ||
+              '   where s.study_type=''Interventional''  ' ||
+              '   and s.study_first_posted_date >= ''2007-10-01''  ' ||
+              '   and s.nct_id = c.nct_id  ' ||
+              '   and c.downcase_name IN (select term from proj_tag_nephrology.tagged_terms)  ' ||
+              '   ) ';
+
+          RETURN;
+        END;
+        ]]></definition>
+</function>
+
+<sequence name="tagged_terms_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="proj_tag_nephrology"/>
+	<role name="ctti"/>
+</sequence>
+
+<sequence name="analyzed_studies_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+	<schema name="proj_tag_nephrology"/>
+	<role name="ctti"/>
+</sequence>
+
+<table name="analyzed_studies" layer="0" collapse-mode="2" max-obj-count="4">
+	<schema name="proj_tag_nephrology"/>
+	<role name="ctti"/>
+	<position x="262.169" y="50"/>
+	<column name="id" not-null="true" sequence="proj_tag_nephrology.analyzed_studies_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_title">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="lead_sponsor">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="analyzed_studies_pkey" type="pk-constr" table="proj_tag_nephrology.analyzed_studies">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tagged_terms" layer="0" collapse-mode="2" max-obj-count="3">
+	<schema name="proj_tag_nephrology"/>
+	<role name="ctti"/>
+	<position x="54" y="53"/>
+	<column name="id" not-null="true" sequence="proj_tag_nephrology.tagged_terms_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="term">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="term_type">
+		<type name="character varying" length="0"/>
+	</column>
+</table>
+
+<view name="tagged_studies" layer="0" collapse-mode="2" max-obj-count="1">
+	<schema name="proj_tag_nephrology"/>
+	<role name="ctti"/>
+	<position x="522.584" y="50"/>
+	<reference>
+		<expression><![CDATA[ SELECT DISTINCT s.nct_id,
+    s.start_date,
+    s.start_date_type,
+    s.primary_completion_date,
+    s.primary_completion_date_type,
+    s.acronym,
+    s.brief_title,
+    s.official_title,
+    s.overall_status,
+    s.phase,
+    s.source,
+    s.number_of_arms,
+    s.enrollment,
+    regexp_replace(s.baseline_population, '[
+
+ ]+'::text, ' '::text, 'g'::text) AS baseline_population,
+    regexp_replace((s.why_stopped)::text, '[
+
+ ]+'::text, ' '::text, 'g'::text) AS why_stopped,
+    regexp_replace((s.limitations_and_caveats)::text, '[
+
+ ]+'::text, ' '::text, 'g'::text) AS limitations_and_caveats,
+    cv.number_of_facilities,
+    cv.actual_duration,
+    cv.were_results_reported,
+    cv.has_us_facility,
+    cv.has_single_facility,
+    cv.months_to_report_results,
+    cv.minimum_age_num,
+    cv.minimum_age_unit,
+    cv.maximum_age_num,
+    cv.maximum_age_unit,
+    d.allocation,
+    d.intervention_model,
+    d.primary_purpose,
+    d.time_perspective,
+    d.masking
+   FROM studies s,
+    calculated_values cv,
+    designs d
+  WHERE (((s.nct_id)::text = (cv.nct_id)::text) AND ((s.nct_id)::text = (d.nct_id)::text) AND ((s.nct_id)::text IN ( SELECT DISTINCT s_1.nct_id
+           FROM studies s_1,
+            browse_conditions bc
+          WHERE (((s_1.study_type)::text = 'Interventional'::text) AND (s_1.study_first_posted_date >= '2007-10-01'::date) AND ((s_1.nct_id)::text = (bc.nct_id)::text) AND ((bc.downcase_mesh_term)::text IN ( SELECT tagged_terms.term
+                   FROM proj_tag_nephrology.tagged_terms)))
+        UNION
+         SELECT DISTINCT s_1.nct_id
+           FROM studies s_1,
+            keywords k
+          WHERE (((s_1.study_type)::text = 'Interventional'::text) AND (s_1.study_first_posted_date >= '2007-10-01'::date) AND ((s_1.nct_id)::text = (k.nct_id)::text) AND ((k.downcase_name)::text IN ( SELECT tagged_terms.term
+                   FROM proj_tag_nephrology.tagged_terms)))
+        UNION
+         SELECT DISTINCT s_1.nct_id
+           FROM studies s_1,
+            conditions c
+          WHERE (((s_1.study_type)::text = 'Interventional'::text) AND (s_1.study_first_posted_date >= '2007-10-01'::date) AND ((s_1.nct_id)::text = (c.nct_id)::text) AND ((c.downcase_name)::text IN ( SELECT tagged_terms.term
+                   FROM proj_tag_nephrology.tagged_terms))))));]]></expression>
+	<column name="nct_id">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="start_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="start_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="primary_completion_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="primary_completion_date_type">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="acronym">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="brief_title">
+		<type name="text" length="0"/>
+	</column>
+	<column name="official_title">
+		<type name="text" length="0"/>
+	</column>
+	<column name="overall_status">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="phase">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="source">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="number_of_arms">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="enrollment">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="baseline_population">
+		<type name="text" length="0"/>
+	</column>
+	<column name="why_stopped">
+		<type name="text" length="0"/>
+	</column>
+	<column name="limitations_and_caveats">
+		<type name="text" length="0"/>
+	</column>
+	<column name="number_of_facilities">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="actual_duration">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="were_results_reported">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="has_us_facility">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="has_single_facility">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="months_to_report_results">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="minimum_age_num">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="minimum_age_unit">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="maximum_age_num">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="maximum_age_unit">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="allocation">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="intervention_model">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="primary_purpose">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="time_perspective">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="masking">
+		<type name="character varying" length="0"/>
+	</column>
+	</reference>
+</view>
+
+<permission>
+	<object name="aact" type="database"/>
+	<privileges connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="ctti"/>
+	<privileges create="true" connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="csosa"/>
+	<privileges connect="true"/>
+</permission>
+<permission>
+	<object name="aact" type="database"/>
+	<roles names="proj"/>
+	<privileges create="true" connect="true"/>
+</permission>
+</dbmodel>
