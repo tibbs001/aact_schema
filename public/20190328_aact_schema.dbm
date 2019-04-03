@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.2-alpha1" last-position="0,515" last-zoom="0.65" max-obj-count="72"
+<dbmodel pgmodeler-ver="0.9.2-alpha1" last-position="0,368" last-zoom="0.65" max-obj-count="72"
 	 default-schema="public" default-owner="postgres">
 <role name="ctti"
       superuser="true"
@@ -70,7 +70,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="ctti"/>
 </sequence>
 
-<table name="brief_summaries" layer="0" collapse-mode="2" max-obj-count="3">
+<table name="brief_summaries" layer="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="3">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
 	<position x="438.615" y="234.308"/>
@@ -85,6 +85,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="brief_summaries_pkey" type="pk-constr" table="ctgov.brief_summaries">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_brief_summaries_nct_id" type="uq-constr" alias="unique_brief_summaries_nct_id" table="ctgov.brief_summaries">
+		<columns names="nct_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -208,6 +211,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="calculated_values_pkey" type="pk-constr" table="ctgov.calculated_values">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_calculated_values_nct_id" type="uq-constr" table="ctgov.calculated_values">
+		<columns names="nct_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -358,7 +364,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="design_outcomes" layer="0" collapse-mode="2" max-obj-count="8">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="142.615" y="1255.31"/>
+	<position x="305.692" y="1279.93"/>
 	<column name="id" not-null="true" sequence="ctgov.design_outcomes_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -439,6 +445,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="designs_pkey" type="pk-constr" table="ctgov.designs">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
+	<constraint name="unique_designs_nct_id" type="uq-constr" table="ctgov.designs">
+		<columns names="nct_id" ref-type="src-columns"/>
+	</constraint>
 </table>
 
 <sequence name="detailed_descriptions_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
@@ -449,11 +458,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="detailed_descriptions" layer="0" collapse-mode="2" max-obj-count="3">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="490.615" y="372.308"/>
+	<position x="484.461" y="441.539"/>
 	<column name="id" not-null="true" sequence="ctgov.detailed_descriptions_id_seq">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="nct_id">
+	<column name="nct_id" not-null="true">
 		<type name="character varying" length="0"/>
 	</column>
 	<column name="description">
@@ -461,6 +470,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="detailed_descriptions_pkey" type="pk-constr" table="ctgov.detailed_descriptions">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_detailed_description_nct_id" type="uq-constr" table="ctgov.detailed_descriptions">
+		<tablespace name="pg_default"/>
+		<columns names="nct_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -472,7 +485,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="documents" layer="0" collapse-mode="2" max-obj-count="7">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="469.615" y="1419.31"/>
+	<position x="614.23" y="1423.93"/>
 	<column name="id" not-null="true" sequence="ctgov.documents_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -540,6 +553,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="eligibilities_pkey" type="pk-constr" table="ctgov.eligibilities">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_eligibilities_nct_id" type="uq-constr" table="ctgov.eligibilities">
+		<columns names="nct_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -1328,6 +1344,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="participant_flows_pkey" type="pk-constr" table="ctgov.participant_flows">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_participant_flow_nct_id" type="uq-constr" table="ctgov.participant_flows">
+		<columns names="nct_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -2488,7 +2507,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="provided_documents" layer="0" collapse-mode="2" max-obj-count="9">
 	<schema name="ctgov"/>
 	<role name="ctti"/>
-	<position x="138.615" y="1472.31"/>
+	<position x="141.692" y="1489.23"/>
 	<column name="id" not-null="true" sequence="ctgov.provided_documents_id_seq">
 		<type name="integer" length="0"/>
 	</column>
